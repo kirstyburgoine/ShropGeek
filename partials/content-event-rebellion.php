@@ -120,9 +120,9 @@ $micro_sponsors = get_field('micro_sponsors');
 		$r = 0;
 		// Loop through the data for the speakers
 		while ( have_rows('headline_speakers') ) : the_row();
-		$r++; // Count the rows so that html commenting can be used in the grid systems ?>
+		$r++; // Count the rows so that html commenting can be used in the grid systems 
 
-			<?php
+			//echo get_row_layout();
 			//------------------------------------------------------------------------------
 			//------------------------------------------------------------------------------
 			// if the layout type is titles, display the title. 
@@ -148,9 +148,29 @@ $micro_sponsors = get_field('micro_sponsors');
 
 			if ( get_row_layout() == 'main_speakers' ) :
 
-				// find the repeater field for the main speakers and loop through tha values
-				if( have_rows('each_speaker') ) : while ( have_rows('each_speaker') ) : the_row();
+				$title = get_sub_field('hs_title'); 
 
+				if ( $title ) : ?>
+				<div class="grid__item one-whole heading pt">
+					<hr>
+					<h2><?php echo $title;?> </h2>					
+				</div>
+				<?php endif;
+
+				// -------------------------------------------------------------------------
+				// find the repeater field for the main speakers and loop through tha values
+				if( have_rows('each_speaker') ) : 
+
+					$last = count( get_sub_field('each_speaker') );
+
+					
+					$c = 0;
+					while ( have_rows('each_speaker') ) : the_row();
+					$c++;
+
+					//echo $last;
+
+					
 					$speaker_name = get_sub_field('hs_speaker_name');
 					$speaker_image = get_sub_field('hs_speaker_image');
 					$speaker_bio = get_sub_field('hs_speaker_bio');
@@ -162,16 +182,16 @@ $micro_sponsors = get_field('micro_sponsors');
 					$shropgeek_tv_url = get_sub_field('shropgeek_tv_url');
 					
 
-					if ( $r > 1 ) :?>--><?php endif; ?><div class="grid__item palm-one-whole one-third pb">
+					if ( $c > 1 ) :?>--><?php endif; ?><div class="grid__item palm-one-whole one-third pb">
 								      		
 						<h4 class="aligncenter"><?php echo $speaker_name; ?></h4>
 
 						<img src="<?php echo $speaker_image['sizes']['standard_thumbnail'];?>" alt="<?php echo $speaker_image['alt'];?>" class="img--center speakers">
 
 						<ul class="nav social-menu">
-								<?php if ( $speaker_website ) : ?><li><a href="<?php echo $speaker_website; ?>" class="ss-social-circle ss-icon" title="Link to <?php echo $speaker_name; ?>'s website">Link</a></li><?php endif; ?>
-								<?php if ( $speaker_linkedin_account ) : ?><li><a href="<?php echo $speaker_linkedin_account; ?>" class="ss-social-circle ss-icon" title="Link to <?php echo $speaker_name; ?>'s LinkedIn profile">LinkedIn</a></li><?php endif; ?>
-								<?php if ( $speaker_twitter ) : ?><li><a href="<?php echo $speaker_twitter;?>" class="ss-social-circle ss-icon" title="Link to <?php echo $speaker_name; ?>'s twitter account">Twitter</a></li><?php endif; ?>
+							<?php if ( $speaker_website ) : ?><li><a href="<?php echo $speaker_website; ?>" class="ss-social-circle ss-icon" title="Link to <?php echo $speaker_name; ?>'s website">Link</a></li><?php endif; ?>
+							<?php if ( $speaker_linkedin_account ) : ?><li><a href="<?php echo $speaker_linkedin_account; ?>" class="ss-social-circle ss-icon" title="Link to <?php echo $speaker_name; ?>'s LinkedIn profile">LinkedIn</a></li><?php endif; ?>
+							<?php if ( $speaker_twitter ) : ?><li><a href="<?php echo $speaker_twitter;?>" class="ss-social-circle ss-icon" title="Link to <?php echo $speaker_name; ?>'s twitter account">Twitter</a></li><?php endif; ?>
 						</ul>
 
 						<?php if ( $speaker_bio ) : ?>
@@ -182,36 +202,43 @@ $micro_sponsors = get_field('micro_sponsors');
 							<?php if ( $talk_topic ) : ?>
 								
 								<h3 class="talk-title"><span>Talk: </span><?php echo $talk_topic; ?></h3>
-
 								<?php echo $talk_outline; ?>
 
 							<?php endif; ?>
 
 							<?php if ( $shropgeek_tv_url ) : ?>
-
 								<a href="<?php echo $shropgeek_tv_url; ?>" class="btn btn--small btn--book">Watch the talk <span class="ss-directright"></span></a>
-
 							<?php endif; ?>
 
 						</div>
 						<?php endif; ?>
 
-					</div>
+					</div><?php if ( $c < 3 ) :?><!--<?php endif; ?>
 
 				<?php 
-				endwhile; endif; // ends looping through the repeater field
-
+				endwhile; endif; // ends looping through the repeater field ?>
+			
+			<?php
 			endif; // endsi if the layout is main speakers
 
 			//------------------------------------------------------------------------------
 			//------------------------------------------------------------------------------
-			// if the layout type is the lightning talks. This is set to show a maximum of 
-			// 6 speakers in 2 rows of 3 so that this can be reused for bigger events as well 
-			// as the evening Rebellion events
+			// if the layout type is the lightning talks. 
+			// This has two settings. If this is a featured lightning talk i.e. needs 
+			// photo / bio too then this will show just one talk that uses all three columns 
+			// to display. If this is the standard lightning talks section this is a repeater 
+			// field and displays only name, talk title, and contact details.
 
 			if ( get_row_layout() == 'lightning_talks' ) :
 
-				$count = count(get_field('lightning_talks'));
+				$title = get_sub_field('lt_title'); 
+
+				if ( $title ) : ?>
+				<div class="grid__item one-whole heading pt">
+					<hr>
+					<h2><?php echo $title;?> </h2>					
+				</div>
+				<?php endif;
 
 				$speaker_name = get_sub_field('lt_speaker_name');
 				$talk_topic = get_sub_field('talk_topic');
@@ -225,9 +252,10 @@ $micro_sponsors = get_field('micro_sponsors');
 				$talk_sub_title = get_sub_field('talk_sub_title');
 				$shropgeek_tv_url = get_sub_field('shropgeek_tv_url');
 				
-	
+				// -----------------------------------------------------------------------------
+				// If this is a featured lightning talk...
 				// Used originally for Julia Wenlock's Chocolate Tasting so that photo and bio could be included
-				if ( $count == '1' && $featured_lightning_talk  == 'Yes' ) : ?>
+				if ( $featured_lightning_talk  == 'Yes' ) : ?>
 
 					<div class="grid__item one-third palm-one-half ptb">
 
@@ -260,36 +288,56 @@ $micro_sponsors = get_field('micro_sponsors');
 					</div>
 
 				<?php 	
-				//--------------------
-				// else this is a standard lighting talk that only displays name / title / contact icons
+				// -----------------------------------------------------------------------------
+				// else this is a standard lighting talk section using a repeater field and only 
+				// displays name / title / contact icons. Repeater set to display a max of 4
 				else : 
 
-					if ( $r > '1' ) :?>--><?php endif;?><div class="grid__item <?php if ( $count == '1' ) : ?>one-whole palm-one-whole<?php elseif ( $count == '2' ) : ?>one-half palm-one-half<?php elseif ( $count == '3' ) : ?>one-third palm-one-half<?php else : ?>one-quarter palm-one-half<?php endif; ?> pb">
+					if( have_rows('each_talk') ) : 
 
-						<h4 class="aligncenter"><?php echo $speaker_name; ?></h4>
-							<p class="aligncenter"><?php echo $talk_topic; ?></p>
-						<ul class="nav social-menu">							
-							<?php if ( $speaker_website ) : ?><li><a href="<?php echo $speaker_website; ?>" class="ss-social-circle ss-icon" title="Link to <?php echo $speaker_name; ?>'s website">Link</a></li><?php endif; ?>
-							<?php if ( $speaker_linkedin_account ) : ?><li><a href="<?php echo $speaker_linkedin_account; ?>" class="ss-social-circle ss-icon" title="Link to <?php echo $speaker_name; ?>'s LinkedIn profile">LinkedIn</a></li><?php endif; ?>
-							<?php if ( $speaker_twitter ) : ?><li><a href="<?php echo $speaker_twitter;?>" class="ss-social-circle ss-icon" title="Link to <?php echo $speaker_name; ?>'s twitter account">Twitter</a></li><?php endif; ?>
-						</ul>
+					
+					$l = 0;
+					while ( have_rows('each_talk') ) : the_row();
+					$l++;
 
-						<?php if ( $shropgeek_tv_url ) : ?>
+						$speaker_name = get_sub_field('r_speaker_name');
+						$talk_topic = get_sub_field('r_talk_topic');
+						$speaker_website = get_sub_field('r_speaker_website');
+						$speaker_linkedin_account = get_sub_field('r_speaker_linkedin_account');
+						$speaker_twitter = get_sub_field('r_speaker_twitter');
+						$shropgeek_tv_url = get_sub_field('r_shropgeek_tv_url');
 
-							<a href="<?php echo $shropgeek_tv_url; ?>" class="btn btn--small btn--book">Watch the talk <span class="ss-directright"></span></a>
+						// Change the classes applied based on how many talks there area. There is a maxiimum of 4 here.
+						if ( $l > '1' ) :?>--><?php endif;?><div class="grid__item <?php if ( $l == '0' ) : ?>one-whole palm-one-whole<?php elseif ( $l == '1' ) : ?>one-half palm-one-half<?php elseif ( $l == '2' ) : ?>one-third palm-one-half<?php else : ?>one-quarter palm-one-half<?php endif; ?> <?php echo $l;?> pb">
 
-						<?php endif; ?>
+							<h4 class="aligncenter"><?php echo $speaker_name; ?></h4>
+								<p class="aligncenter"><?php echo $talk_topic; ?></p>
+							<ul class="nav social-menu">							
+								<?php if ( $speaker_website ) : ?><li><a href="<?php echo $speaker_website; ?>" class="ss-social-circle ss-icon" title="Link to <?php echo $speaker_name; ?>'s website">Link</a></li><?php endif; ?>
+								<?php if ( $speaker_linkedin_account ) : ?><li><a href="<?php echo $speaker_linkedin_account; ?>" class="ss-social-circle ss-icon" title="Link to <?php echo $speaker_name; ?>'s LinkedIn profile">LinkedIn</a></li><?php endif; ?>
+								<?php if ( $speaker_twitter ) : ?><li><a href="<?php echo $speaker_twitter;?>" class="ss-social-circle ss-icon" title="Link to <?php echo $speaker_name; ?>'s twitter account">Twitter</a></li><?php endif; ?>
+							</ul>
 
-					</div><?php if ( $r < '2' ) :?><!--<?php endif; ?>
+							<?php if ( $shropgeek_tv_url ) : ?>
 
-				<?php 	
-				endif; // ends if count and featured
+								<a href="<?php echo $shropgeek_tv_url; ?>" class="btn btn--small btn--book watch-video">Watch the talk <span class="ss-directright"></span></a>
+
+							<?php endif; ?>
+
+						</div><!--
+						
+
+					<?php 	
+					endwhile; endif; // ends the while loop for the repeater field ?>
+					-->
 				
-			endif; // ends if lightning content
+			<?php	endif; // ends if this is a featured lightning talk or not
+
+			endif; // ends if this is the lightning talk content layout
 			
 		endwhile; // end the main flexible content while loop
 			
-	endif; // end if headlines speakers flexible content field 
+	endif; // end if headline speakers flexible content field 
 	
 	// Ends the speakers section of the page
 	// 

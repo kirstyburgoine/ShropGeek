@@ -162,6 +162,8 @@ p a:hover { color: $link_color; }
             font-size: 16px; font-size: 1.1rem;
             margin: 0 0.5em 0.5em 0;
 
+            &.watch-video { width: 172px; display: block!important; margin: 0 auto; }
+
             span.grey { color:#4d4d4d; 
 
                 span.ss-directright { font-size: 14px; font-size: 0.8rem; 
@@ -173,6 +175,8 @@ p a:hover { color: $link_color; }
             }
 
             span.ss-directright { font-size: 16px; font-size: 0.9rem; }
+
+
         }
 
             .btn--book:hover {

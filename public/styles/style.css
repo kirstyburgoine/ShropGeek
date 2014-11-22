@@ -3618,6 +3618,10 @@ p a:hover {
   font-size: 16px;
   font-size: 1.1rem;
   margin: 0 0.5em 0.5em 0; }
+  .btn--book.watch-video {
+    width: 172px;
+    display: block !important;
+    margin: 0 auto; }
   .btn--book span.grey {
     color: #4d4d4d; }
     .btn--book span.grey span.ss-directright {
