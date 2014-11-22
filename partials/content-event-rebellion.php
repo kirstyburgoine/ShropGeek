@@ -108,31 +108,46 @@ $micro_sponsors = get_field('micro_sponsors');
 
 		<?php endif; ?>
 
-			<?php
-			// ----------------------------------------------------------------------------------------------------
-			// ----------------------------------------------------------------------------------------------------
-			// Speakers Section Starts
-			// This uses flexible content so columns can be filled with alterante content
-			// if less than three headline speakers
+		<?php
+		// ----------------------------------------------------------------------------------------------------
+		// ----------------------------------------------------------------------------------------------------
+		// Speakers Section Starts
+		// This uses flexible content so that headline speakers / lightning talks and more can be added
+		// 
 			
-			// Check if there is a flexible content field for the headline speakers
-			if( have_rows('headline_speakers') ) : ?>
+		// Check if there is a flexible content field for the headline speakers. This is now the flexible content 
+		// for all speaker options. It started out as just headline speakers which is the row name is still that
+		if( have_rows('headline_speakers') ) : 
+
+			$h = 0;
+			// Loop through the data for the speakers
+			while ( have_rows('headline_speakers') ) : the_row();
+			$h++; // Count the rows so that html commenting can be used in the grid systems ?>
 
 
+			<?php
+			//------------------------------------------------------------------------------
+			//------------------------------------------------------------------------------
+			// if the layout type is titles, display the title. 
+
+			if ( get_row_layout() == 'title' ) :
+				$section_title = get_sub_field('section_title');
+				?>
+				
 				<div class="grid__item one-whole heading pt">
 					<hr>
-					<h2>The Speakers</h2>
-					
+					<h2><?php echo $section_title;?> </h2>					
 				</div>
 
-	
+			
+			<?php
+			//------------------------------------------------------------------------------
+			//------------------------------------------------------------------------------
+			// if the layout type is the headline speakers. this is set to show a maximum of 
+			// 9 speakers in 3 rows of 3 so that this can be reused for bigger events as well 
+			// as the evening Rebellion events
 
-				
-				<?php
-				$h = 0;
-				// Loop through the data for the headline speakers
-				while ( have_rows('headline_speakers') ) : the_row();
-				$h++; 
+			elseif ( get_row_layout() == 'main_speakers' ) :
 
 				$speaker_name = get_sub_field('hs_speaker_name');
 				$speaker_image = get_sub_field('hs_speaker_image');
@@ -179,41 +194,20 @@ $micro_sponsors = get_field('micro_sponsors');
 					</div>
 					<?php endif; ?>
 
-				</div><!--
-
-				
-
-				<?php 
-				endwhile; ?>
-				-->
-			
-			
-			<?php 
-			endif; ?>
-
-			<?php 
-			// ----------------------------------------------------------------------------------------------------
-			// ----------------------------------------------------------------------------------------------------
-			// Check if there is a flexible content field for the lightning talks
-			if( have_rows('lightning_talks') ) : 
-
-			$count = count(get_field('lightning_talks')); ?>
-			
-			
-
-				<div class="grid__item one-whole heading pt">
-					<hr>
-					<h3>Lightning Talks</h3>
 				</div>
 
-			<?php
-			$l = 0;
-			// Loop through the data for the lightning talks
-			while ( have_rows('lightning_talks') ) : the_row();
-			$l++; 
-			//echo $wp_query->found_posts; ?>
 
-				<?php
+			<?php
+			//------------------------------------------------------------------------------
+			//------------------------------------------------------------------------------
+			// if the layout type is the lightning talks. This is set to show a maximum of 
+			// 6 speakers in 2 rows of 3 so that this can be reused for bigger events as well 
+			// as the evening Rebellion events
+
+			elseif ( get_row_layout() == 'lightning_talks' ) :
+
+				$count = count(get_field('lightning_talks'));
+
 				$speaker_name = get_sub_field('lt_speaker_name');
 				$talk_topic = get_sub_field('talk_topic');
 				$speaker_website = get_sub_field('lt_speaker_website');
@@ -226,47 +220,47 @@ $micro_sponsors = get_field('micro_sponsors');
 				$talk_sub_title = get_sub_field('talk_sub_title');
 				$shropgeek_tv_url = get_sub_field('shropgeek_tv_url');
 				
-				?>
+	
+				// Used originally for Julia Wenlock's Chocolate Tasting so that photo and bio could be included
+				if ( $count == '1' && $featured_lightning_talk  == 'Yes' ) : ?>
 
-			<?php 	
-			// Used originally for Julia Wenlock's Chocolate Tasting
-			if ( $count == '1' && $featured_lightning_talk  == 'Yes' ) : ?>
+					<div class="grid__item one-third palm-one-half ptb">
 
-				<div class="grid__item one-third palm-one-half ptb">
-
-					<img src="<?php echo $speaker_photo['sizes']['standard_thumbnail'];?>" alt="<?php echo $speaker_photo['alt'];?>" class="img--center speakers">
-				
-				</div><!--
-
-				--><div class="grid__item one-third palm-one-half ptb">
-						<h3 class="aligncenter"><?php echo $speaker_name; ?></h3>
-							<h4 class="aligncenter"><?php echo $talk_topic; ?></h4>
-							<p class="aligncenter"><?php echo $talk_sub_title; ?></p>
-						<ul class="nav social-menu">							
-							<?php if ( $speaker_website ) : ?><li><a href="<?php echo $speaker_website; ?>" class="ss-social-circle ss-icon" title="Link to <?php echo $speaker_name; ?>'s website">Link</a></li><?php endif; ?>
-							<?php if ( $speaker_linkedin_account ) : ?><li><a href="<?php echo $speaker_linkedin_account; ?>" class="ss-social-circle ss-icon" title="Link to <?php echo $speaker_name; ?>'s LinkedIn profile">LinkedIn</a></li><?php endif; ?>
-							<?php if ( $speaker_twitter ) : ?><li><a href="<?php echo $speaker_twitter;?>" class="ss-social-circle ss-icon" title="Link to <?php echo $speaker_name; ?>'s twitter account">Twitter</a></li><?php endif; ?>
-						</ul>
-						<?php if ( $shropgeek_tv_url ) : ?>
-
-							<a href="<?php echo $shropgeek_tv_url; ?>" class="btn btn--small btn--book">Watch the talk <span class="ss-directright"></span></a>
-
-						<?php endif; ?>
-				</div><!--
-
-				--><div class="grid__item one-third palm-one-whole ptb">
+						<img src="<?php echo $speaker_photo['sizes']['standard_thumbnail'];?>" alt="<?php echo $speaker_photo['alt'];?>" class="img--center speakers">
 					
-					<div class="entry-content">
-						<?php echo $speaker_bio; ?>
+					</div><!--
+
+					--><div class="grid__item one-third palm-one-half ptb">
+							<h3 class="aligncenter"><?php echo $speaker_name; ?></h3>
+								<h4 class="aligncenter"><?php echo $talk_topic; ?></h4>
+								<p class="aligncenter"><?php echo $talk_sub_title; ?></p>
+							<ul class="nav social-menu">							
+								<?php if ( $speaker_website ) : ?><li><a href="<?php echo $speaker_website; ?>" class="ss-social-circle ss-icon" title="Link to <?php echo $speaker_name; ?>'s website">Link</a></li><?php endif; ?>
+								<?php if ( $speaker_linkedin_account ) : ?><li><a href="<?php echo $speaker_linkedin_account; ?>" class="ss-social-circle ss-icon" title="Link to <?php echo $speaker_name; ?>'s LinkedIn profile">LinkedIn</a></li><?php endif; ?>
+								<?php if ( $speaker_twitter ) : ?><li><a href="<?php echo $speaker_twitter;?>" class="ss-social-circle ss-icon" title="Link to <?php echo $speaker_name; ?>'s twitter account">Twitter</a></li><?php endif; ?>
+							</ul>
+							<?php if ( $shropgeek_tv_url ) : ?>
+
+								<a href="<?php echo $shropgeek_tv_url; ?>" class="btn btn--small btn--book">Watch the talk <span class="ss-directright"></span></a>
+
+							<?php endif; ?>
+					</div><!--
+
+					--><div class="grid__item one-third palm-one-whole ptb">
+						
+						<div class="entry-content">
+							<?php echo $speaker_bio; ?>
+						</div>
+
 					</div>
 
-				</div>
+				<?php 	
+				//--------------------
+				// else this is a standard lighting talk that only displays name / title / contact icons
+				else : 
 
-			<?php 	
-			//--------------------
-			else : ?>
+					if ( $h > '1' ) :?>--><?php endif;?><div class="grid__item <?php if ( $count == '1' ) : ?>one-whole palm-one-whole<?php elseif ( $count == '2' ) : ?>one-half palm-one-half<?php elseif ( $count == '3' ) : ?>one-third palm-one-half<?php else : ?>one-quarter palm-one-half<?php endif; ?> pb">
 
-				<?php if ( $l > '1' ) :?>--><?php endif;?><div class="grid__item <?php if ( $count == '1' ) : ?>one-whole palm-one-whole<?php elseif ( $count == '2' ) : ?>one-half palm-one-half<?php elseif ( $count == '3' ) : ?>one-third palm-one-half<?php else : ?>one-quarter palm-one-half<?php endif; ?> pb">
 						<h4 class="aligncenter"><?php echo $speaker_name; ?></h4>
 							<p class="aligncenter"><?php echo $talk_topic; ?></p>
 						<ul class="nav social-menu">							
@@ -281,49 +275,36 @@ $micro_sponsors = get_field('micro_sponsors');
 
 						<?php endif; ?>
 
-				</div><?php if ( $l < '2' ) :?><!--<?php endif; ?>
+					</div><?php if ( $h < '2' ) :?><!--<?php endif; ?>
 
-
-
-			<?php 	
-			endif; // ends if count and featured
-
-
-			/*	if ( $l == '4' ) : ?>
-				-->
-				<?php
-				endif;
-			*/
+				<?php 	
+				endif; // ends if count and featured
 				
-			endwhile; ?>
 
+			
+			endwhile; // end the sub field while loop
+			
+		endif; // end if headlines speakers flexible content field 
 
+		if ( $booking_link ) : ?>
+			
+			<div class="grid__item one-third palm-one-whole pb">
+			</div><!--
 
+			--><div class="grid__item one-third palm-one-whole pb">
+
+				<a href="<?php echo $booking_link; ?>" class="btn btn--full btn--book">Book Tickets <span class="ss-directright"></span></a>
+					
+			</div><!--
+
+			--><div class="grid__item one-third palm-one-whole pb">
 			</div>
 
-			<?php 
-			endif; ?>
-
-			<?php if ( $booking_link ) : ?>
-			
-
-				<div class="grid__item one-third palm-one-whole pb">
-				</div><!--
-
-				--><div class="grid__item one-third palm-one-whole pb">
-
-					
-					<a href="<?php echo $booking_link; ?>" class="btn btn--full btn--book">Book Tickets <span class="ss-directright"></span></a>
-					
-					
-				</div><!--
-
-				--><div class="grid__item one-third palm-one-whole pb">
-				</div>
-
-			<?php endif; ?>
+		<?php 
+		endif; ?>
 
 </div>
+<?php // closes container so that the map section below can be full screen width ?>
  	
 		
 		<?php 
@@ -356,7 +337,7 @@ $micro_sponsors = get_field('micro_sponsors');
 		<?php 
 		// ----------------------------------------------------------------------------------------------------
 		// ----------------------------------------------------------------------------------------------------
-		// Check if there is a repeater field for the lightning talks
+		// Check if there is a repeater field for the sponsors
 		if( have_rows('main_sponsors') ) : ?>
 	
 			<!-- Sponsors on a new row //-->

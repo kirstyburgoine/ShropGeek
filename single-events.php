@@ -137,7 +137,7 @@ $title_strapline = get_field('title_strapline');
 
 	<?php
 	// ------------------------------------------------------------------------------------------------------------
-	// Else get the main page layout for the Rebellion events
+	// Else get the main page layout for the Rebellion / Reloaded events
 	else : ?>
 
 	<div class="grid__item one-whole" role="main">
