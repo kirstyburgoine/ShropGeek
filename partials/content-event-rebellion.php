@@ -122,23 +122,6 @@ $micro_sponsors = get_field('micro_sponsors');
 		while ( have_rows('headline_speakers') ) : the_row();
 		$r++; // Count the rows so that html commenting can be used in the grid systems 
 
-			//echo get_row_layout();
-			//------------------------------------------------------------------------------
-			//------------------------------------------------------------------------------
-			// if the layout type is titles, display the title. 
-
-			if ( get_row_layout() == 'title' ) :
-				$section_title = get_sub_field('section_title');
-				?>
-				
-				<div class="grid__item one-whole heading pt">
-					<hr>
-					<h2><?php echo $section_title;?> </h2>					
-				</div>
-
-			
-			<?php
-			endif;
 
 			//------------------------------------------------------------------------------
 			//------------------------------------------------------------------------------

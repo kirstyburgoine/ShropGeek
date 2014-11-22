@@ -3746,9 +3746,13 @@ div.tab {
   div.tab.tab-5, div.tab.tab-11 {
     background-color: #534741;
     color: #fff; }
+    div.tab.tab-5 h3, div.tab.tab-11 h3 {
+      color: #fff; }
   div.tab.tab-6, div.tab.tab-12 {
     background-color: #071205;
     color: #fff; }
+    div.tab.tab-6 h3, div.tab.tab-12 h3 {
+      color: #fff; }
   div.tab:hover {
     cursor: pointer;
     background: #fff;

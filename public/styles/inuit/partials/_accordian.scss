@@ -22,8 +22,12 @@
         //&.tab-three { background-color: #f6e1ab; }
         &.tab-3, &.tab-9 { background-color: #f8e7bc; }
         &.tab-4, &.tab-10  { background-color: #AA9A81;} 
-        &.tab-5, &.tab-11 { background-color: #534741; color: $copy_color; }  
-        &.tab-6, &.tab-12 { background-color: #071205; color: $copy_color; }  
+        &.tab-5, &.tab-11 { background-color: #534741; color: $copy_color;
+            h3 { color: $copy_color; } 
+        }  
+        &.tab-6, &.tab-12 { background-color: #071205; color: $copy_color; 
+            h3 { color: $copy_color; } 
+        }  
 
 
 

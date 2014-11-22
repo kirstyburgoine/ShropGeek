@@ -50,7 +50,7 @@ endif;
 
 
 			<?php
-			// If the socials we want the layout to alternate 
+			// If the socials we want the layout to alternate so the image position changes from left to right
 			if ( $types[0] == "Social") :
 
 				if ( $i % 2 == 0 ) { 

@@ -4,8 +4,6 @@
  * Template Name: Home
  */
 
-
-
 get_header(); 
 
 ?>
@@ -42,14 +40,9 @@ get_header();
 			query_posts( $args );
 
 			if ( have_posts() ) :
-				// Start the Loop insode the events partial so that events can be counted.
+				// Start the While Loop inside the events partial so that events can be counted.
 
-
-					/*
-					 * Include the post format-specific template for the content. If you want to
-					 * use this in a child theme, then include a file called called content-___.php
-					 * (where ___ is the post format) and that will be used instead.
-					 */
+					// The main container file for the events on the homepage
 					get_template_part( 'partials/content', 'home-events' );
 
 
