@@ -43,87 +43,84 @@ $micro_sponsors = get_field('micro_sponsors');
 
 <div class="container">
 
+	<div class="grid__item one-whole">
 
+		<h2 class="event-meta"><?php echo the_time('F jS Y'); ?>  . <span><?php echo $event_time; ?></span> . <?php echo $venue_name; ?></h2>
+		<hr>
 
-		<div class="grid__item one-whole">
-
-			<h2 class="event-meta"><?php echo the_time('F jS Y'); ?>  . <span><?php echo $event_time; ?></span> . <?php echo $venue_name; ?></h2>
-			<hr>
-
-			<?php if ( $subject_logo ) : ?>
-				<img src="<?php echo $subject_logo['sizes']['subject_logo'];?>" alt="<?php echo $subject_logo['alt'];?>" class="img--center pt no-mb">
-			<?php endif; ?>
-
-			<?php if ( $sub_title ) : ?>
-				<p class="intro"><?php echo $sub_title; ?></p>
-			<?php endif; ?>
-
-		</div>
-
-
-		<div class="grid__item one-half palm-one-whole pt">
-
-			<div class="entry-content">
-		    	<?php the_content(); ?>	
-			</div>
-
-		</div><!--
-
-		--><div class="grid__item one-half palm-one-whole pt">
-
-			<div class="entry-content">
-
-				<?php echo $text_column_2; ?>
-
-			</div>
-
-
-
-		</div>
-
-		<?php if ( $intro_text ) : ?>
-		<div class="grid__item one-whole pt">
-
-			<p class="intro"><?php echo $intro_text; ?></p>
-
-		</div>
-		<?php endif; ?>	   					
-
-		<?php if ( $booking_link ) : ?>
-
-		<div class="grid__item one-third palm-one-whole pt">
-		</div><!--
-
-		--><div class="grid__item one-third palm-one-whole pt">
-
-					
-			<a href="<?php echo $booking_link; ?>" class="btn btn--full btn--book">Book Tickets <span class="ss-directright"></span></a>
-					
-
-
-		</div><!--
-
-		--><div class="grid__item one-third palm-one-whole pt">
-		</div>
-
+		<?php if ( $subject_logo ) : ?>
+			<img src="<?php echo $subject_logo['sizes']['subject_logo'];?>" alt="<?php echo $subject_logo['alt'];?>" class="img--center pt no-mb">
 		<?php endif; ?>
 
-		<?php
-		// ----------------------------------------------------------------------------------------------------
-		// ----------------------------------------------------------------------------------------------------
-		// Speakers Section Starts
-		// This uses flexible content so that headline speakers / lightning talks and more can be added
-		// 
-			
-		// Check if there is a flexible content field for the headline speakers. This is now the flexible content 
-		// for all speaker options. It started out as just headline speakers which is the row name is still that
-		if( have_rows('headline_speakers') ) : 
+		<?php if ( $sub_title ) : ?>
+			<p class="intro"><?php echo $sub_title; ?></p>
+		<?php endif; ?>
 
-			$h = 0;
-			// Loop through the data for the speakers
-			while ( have_rows('headline_speakers') ) : the_row();
-			$h++; // Count the rows so that html commenting can be used in the grid systems ?>
+	</div>
 
+
+	<div class="grid__item one-half palm-one-whole pt">
+
+		<div class="entry-content">
+		   	<?php the_content(); ?>	
+		</div>
+
+	</div><!--
+
+
+	--><div class="grid__item one-half palm-one-whole pt">
+
+		<div class="entry-content">
+
+			<?php echo $text_column_2; ?>
+
+		</div>
+
+	</div>
+
+	
+	<?php 
+	if ( $intro_text ) : ?>
+	<div class="grid__item one-whole pt">
+
+		<p class="intro"><?php echo $intro_text; ?></p>
+
+	</div>
+	<?php 
+	endif; ?>	   					
+
+	<?php 
+	if ( $booking_link ) : ?>
+
+	<div class="grid__item one-third palm-one-whole pt">
+	</div><!--
+
+	--><div class="grid__item one-third palm-one-whole pt">
+	
+			<a href="<?php echo $booking_link; ?>" class="btn btn--full btn--book">Book Tickets <span class="ss-directright"></span></a>		
+
+	</div><!--
+
+	--><div class="grid__item one-third palm-one-whole pt">
+	</div>
+
+	<?php 
+	endif; 
+
+	// ----------------------------------------------------------------------------------------------------
+	// ----------------------------------------------------------------------------------------------------
+	// Speakers Section Starts
+	// This uses flexible content so that headline speakers / lightning talks and more can be added
+	// 
+		
+	// Check if there is a flexible content field for the headline speakers. This is now the flexible content 
+	// for all speaker options. It started out as just headline speakers which is the row name is still that
+	if( have_rows('headline_speakers') ) : 
+
+		$r = 0;
+		// Loop through the data for the speakers
+		while ( have_rows('headline_speakers') ) : the_row();
+		$r++; // Count the rows so that html commenting can be used in the grid systems ?>
 
 			<?php
 			//------------------------------------------------------------------------------
@@ -141,70 +138,78 @@ $micro_sponsors = get_field('micro_sponsors');
 
 			
 			<?php
+			endif;
+
 			//------------------------------------------------------------------------------
 			//------------------------------------------------------------------------------
 			// if the layout type is the headline speakers. this is set to show a maximum of 
 			// 9 speakers in 3 rows of 3 so that this can be reused for bigger events as well 
 			// as the evening Rebellion events
 
-			elseif ( get_row_layout() == 'main_speakers' ) :
+			if ( get_row_layout() == 'main_speakers' ) :
 
-				$speaker_name = get_sub_field('hs_speaker_name');
-				$speaker_image = get_sub_field('hs_speaker_image');
-				$speaker_bio = get_sub_field('hs_speaker_bio');
-				$talk_topic = get_sub_field('talk_topic');
-				$talk_outline = get_sub_field('hs_talk_outline');
-				$speaker_website = get_sub_field('hs_speaker_website');
-				$speaker_linkedin_account = get_sub_field('hs_speaker_linkedin_account');
-				$speaker_twitter = get_sub_field('hs_speaker_twitter');
-				$shropgeek_tv_url = get_sub_field('shropgeek_tv_url');
-				
+				// find the repeater field for the main speakers and loop through tha values
+				if( have_rows('each_speaker') ) : while ( have_rows('each_speaker') ) : the_row();
 
-				if ( $h > 1 ) :?>--><?php endif; ?><div class="grid__item palm-one-whole one-third pb">
-							      		
-					<h4 class="aligncenter"><?php echo $speaker_name; ?></h4>
-
-					<img src="<?php echo $speaker_image['sizes']['standard_thumbnail'];?>" alt="<?php echo $speaker_image['alt'];?>" class="img--center speakers">
-
-					<ul class="nav social-menu">
-							<?php if ( $speaker_website ) : ?><li><a href="<?php echo $speaker_website; ?>" class="ss-social-circle ss-icon" title="Link to <?php echo $speaker_name; ?>'s website">Link</a></li><?php endif; ?>
-							<?php if ( $speaker_linkedin_account ) : ?><li><a href="<?php echo $speaker_linkedin_account; ?>" class="ss-social-circle ss-icon" title="Link to <?php echo $speaker_name; ?>'s LinkedIn profile">LinkedIn</a></li><?php endif; ?>
-							<?php if ( $speaker_twitter ) : ?><li><a href="<?php echo $speaker_twitter;?>" class="ss-social-circle ss-icon" title="Link to <?php echo $speaker_name; ?>'s twitter account">Twitter</a></li><?php endif; ?>
-					</ul>
-
-					<?php if ( $speaker_bio ) : ?>
-					<div class="entry-content">
+					$speaker_name = get_sub_field('hs_speaker_name');
+					$speaker_image = get_sub_field('hs_speaker_image');
+					$speaker_bio = get_sub_field('hs_speaker_bio');
+					$talk_topic = get_sub_field('talk_topic');
+					$talk_outline = get_sub_field('hs_talk_outline');
+					$speaker_website = get_sub_field('hs_speaker_website');
+					$speaker_linkedin_account = get_sub_field('hs_speaker_linkedin_account');
+					$speaker_twitter = get_sub_field('hs_speaker_twitter');
+					$shropgeek_tv_url = get_sub_field('shropgeek_tv_url');
 					
-						<?php echo $speaker_bio; ?>
 
-						<?php if ( $talk_topic ) : ?>
-							
-							<h3 class="talk-title"><span>Talk: </span><?php echo $talk_topic; ?></h3>
+					if ( $r > 1 ) :?>--><?php endif; ?><div class="grid__item palm-one-whole one-third pb">
+								      		
+						<h4 class="aligncenter"><?php echo $speaker_name; ?></h4>
 
-							<?php echo $talk_outline; ?>
+						<img src="<?php echo $speaker_image['sizes']['standard_thumbnail'];?>" alt="<?php echo $speaker_image['alt'];?>" class="img--center speakers">
 
-						<?php endif; ?>
+						<ul class="nav social-menu">
+								<?php if ( $speaker_website ) : ?><li><a href="<?php echo $speaker_website; ?>" class="ss-social-circle ss-icon" title="Link to <?php echo $speaker_name; ?>'s website">Link</a></li><?php endif; ?>
+								<?php if ( $speaker_linkedin_account ) : ?><li><a href="<?php echo $speaker_linkedin_account; ?>" class="ss-social-circle ss-icon" title="Link to <?php echo $speaker_name; ?>'s LinkedIn profile">LinkedIn</a></li><?php endif; ?>
+								<?php if ( $speaker_twitter ) : ?><li><a href="<?php echo $speaker_twitter;?>" class="ss-social-circle ss-icon" title="Link to <?php echo $speaker_name; ?>'s twitter account">Twitter</a></li><?php endif; ?>
+						</ul>
 
-						<?php if ( $shropgeek_tv_url ) : ?>
+						<?php if ( $speaker_bio ) : ?>
+						<div class="entry-content">
+						
+							<?php echo $speaker_bio; ?>
 
-							<a href="<?php echo $shropgeek_tv_url; ?>" class="btn btn--small btn--book">Watch the talk <span class="ss-directright"></span></a>
+							<?php if ( $talk_topic ) : ?>
+								
+								<h3 class="talk-title"><span>Talk: </span><?php echo $talk_topic; ?></h3>
 
+								<?php echo $talk_outline; ?>
+
+							<?php endif; ?>
+
+							<?php if ( $shropgeek_tv_url ) : ?>
+
+								<a href="<?php echo $shropgeek_tv_url; ?>" class="btn btn--small btn--book">Watch the talk <span class="ss-directright"></span></a>
+
+							<?php endif; ?>
+
+						</div>
 						<?php endif; ?>
 
 					</div>
-					<?php endif; ?>
 
-				</div>
+				<?php 
+				endwhile; endif; // ends looping through the repeater field
 
+			endif; // endsi if the layout is main speakers
 
-			<?php
 			//------------------------------------------------------------------------------
 			//------------------------------------------------------------------------------
 			// if the layout type is the lightning talks. This is set to show a maximum of 
 			// 6 speakers in 2 rows of 3 so that this can be reused for bigger events as well 
 			// as the evening Rebellion events
 
-			elseif ( get_row_layout() == 'lightning_talks' ) :
+			if ( get_row_layout() == 'lightning_talks' ) :
 
 				$count = count(get_field('lightning_talks'));
 
@@ -259,7 +264,7 @@ $micro_sponsors = get_field('micro_sponsors');
 				// else this is a standard lighting talk that only displays name / title / contact icons
 				else : 
 
-					if ( $h > '1' ) :?>--><?php endif;?><div class="grid__item <?php if ( $count == '1' ) : ?>one-whole palm-one-whole<?php elseif ( $count == '2' ) : ?>one-half palm-one-half<?php elseif ( $count == '3' ) : ?>one-third palm-one-half<?php else : ?>one-quarter palm-one-half<?php endif; ?> pb">
+					if ( $r > '1' ) :?>--><?php endif;?><div class="grid__item <?php if ( $count == '1' ) : ?>one-whole palm-one-whole<?php elseif ( $count == '2' ) : ?>one-half palm-one-half<?php elseif ( $count == '3' ) : ?>one-third palm-one-half<?php else : ?>one-quarter palm-one-half<?php endif; ?> pb">
 
 						<h4 class="aligncenter"><?php echo $speaker_name; ?></h4>
 							<p class="aligncenter"><?php echo $talk_topic; ?></p>
@@ -275,16 +280,22 @@ $micro_sponsors = get_field('micro_sponsors');
 
 						<?php endif; ?>
 
-					</div><?php if ( $h < '2' ) :?><!--<?php endif; ?>
+					</div><?php if ( $r < '2' ) :?><!--<?php endif; ?>
 
 				<?php 	
 				endif; // ends if count and featured
 				
+			endif; // ends if lightning content
+			
+		endwhile; // end the main flexible content while loop
+			
+	endif; // end if headlines speakers flexible content field 
+	
+	// Ends the speakers section of the page
+	// 
+	// ----------------------------------------------------------------------------------------------------
+	// ----------------------------------------------------------------------------------------------------
 
-			
-			endwhile; // end the sub field while loop
-			
-		endif; // end if headlines speakers flexible content field 
 
 		if ( $booking_link ) : ?>
 			
