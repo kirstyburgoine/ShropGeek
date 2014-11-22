@@ -1,0 +1,11 @@
+@charset "UTF-8";
+/*
+Theme Name: Shropgeek 2014
+Theme URI: http://wwww.kirstyburgoine.co.uk
+Author: Kirsty Burgoine
+Author URI: http://wwww.kirstyburgoine.co.uk
+Description: Brabd new responsive theme for Shropgeek, made with love, SASS (and more specifically inuitcss) and mixture
+Version: 1.0
+*/
+
+@import url('public/styles/style.css');

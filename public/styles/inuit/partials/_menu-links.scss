@@ -1,0 +1,297 @@
+a { color: $link_color; }
+//a:hover { color: $copy_color; }
+
+a:hover { color: #000; }
+
+p a { color: #000; }
+p a:hover { color: $link_color; }
+
+    .content-odd p a { color: $link_color; }
+    .content-odd p a:hover { color: #fff; }
+
+//---------------------------------------------------------
+//---------------------------------------------------------
+// Menus
+
+.header a {
+    font-size: 14px; font-size:1.4rem;
+    color: $copy_color;
+}
+
+
+.menu-btn {
+    padding-right: 10px;
+    text-decoration: none;
+    @include transition;
+
+    .btn-helper-text { font-family: $bold_font; font-size: 18px; vertical-align: top;}
+}
+
+.menu-btn:hover {
+    color: $link_color;
+}
+
+
+//---------------------------------------------------------
+//---------------------------------------------------------
+// Menus
+
+.social-menu { 
+
+    float: right; 
+    text-align: right; 
+    margin-bottom: 0;
+
+    >li {
+    
+        >a {
+            font-size: 16px; font-size:1.6rem;
+            padding: 1% 3%;
+            color: $social_color;
+            @include transition;
+
+            &:hover { color: $link_color; }
+
+            @media screen and (min-width: $lap-start) {
+            
+                padding: 0 0.2em;
+            }
+      
+        }
+
+    }
+
+}
+
+.content-mid,
+.content-even {
+
+    .social-menu { 
+
+        >li {
+    
+            >a {
+                color: #333;
+            
+                &:hover { color: $link_color; }
+            }
+        }        
+    }
+}
+
+
+//---------------------------------------------------------
+//---------------------------------------------------------
+// Overrides slidebar styling scss
+
+.sb-slidebar {
+
+    background: #000;
+
+
+    > img { 
+        width: 60%; 
+        max-width: 180px;
+        margin: 0 auto;
+    }
+
+    > ul {
+        margin: 1em;
+
+        > li {
+
+            > a {
+                color: #666;
+                padding: 0.5em 0;
+                border-top: solid 1px #333;
+                border-bottom: solid 1px #666;
+                text-decoration: none;
+
+                @include transition;
+            }
+
+            > a:hover {
+                color: $copy_color;
+            }
+        }
+    }
+
+    > .widget {
+        margin: 10%;
+
+        img { 
+            max-width: 100%;
+            margin: 5% auto;
+            display: block;
+            height: auto;
+        }
+    }
+
+}
+
+//---------------------------------------------------------
+//---------------------------------------------------------
+// News and Events
+
+.event,
+.archive {
+    h2 a { text-decoration: none; color: #333; }
+    h2 a:hover { color: $link_color; } 
+}
+
+.event h2 a { text-decoration: none; color: #333; padding-right: 7px; }
+
+.news-include h4 a {
+    color: #333;
+    text-decoration: none;
+}
+
+.news-include h4 a:hover {
+    color: $link_color;
+}
+
+
+
+        .btn--book {
+            @include transition;
+            background-color: $link_color;
+            color:#000;
+            font-family: franklin-gothic-urw,sans-serif;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 16px; font-size: 1.1rem;
+            margin: 0 0.5em 0.5em 0;
+
+            span.grey { color:#4d4d4d; 
+
+                span.ss-directright { font-size: 14px; font-size: 0.8rem; 
+
+                    @media screen and (min-width: $lap-start) {
+                        font-size: 18px; font-size: 0.9rem;
+                    }
+                }
+            }
+
+            span.ss-directright { font-size: 16px; font-size: 0.9rem; }
+        }
+
+            .btn--book:hover {
+                background-color: $copy_color;
+                color:#000;
+            }
+
+
+    .event .btn--book {
+        font-size: 15px;
+
+            span { font-size: 11px; }
+    }
+
+    .content-even .btn--book:hover,
+    .event .btn--book:hover {
+        background: #bcbcbc;
+    }
+
+
+ 
+
+
+#nav-single { 
+    padding:1.5em 0;
+    width: 100%;
+    clear: both;
+
+
+    a { 
+        font-size: 16px; font-size: 1.1rem;
+        color: #333;
+        text-decoration:none; 
+        @include transition;
+    } 
+    
+    a:hover { color: $link_color; } 
+
+    .nav-previous {
+        text-align: left;
+        float: left;
+    }
+
+    .nav-next {
+        text-align: right;
+        float: right;
+    }
+
+
+    .meta-nav { 
+        font-family: $bold_font;
+        font-weight: 900;
+        text-transform: uppercase;
+    }
+
+    .next-title,
+    .prev-title { }
+    .next-title { margin-right:1.2em; }
+    .prev-title { margin-left:1.2em; }
+
+}
+
+.content-odd {
+
+    #nav-single{
+        a { color: #666; }
+        a:hover { color: $link_color; } 
+    }
+}
+
+//---------------------------------------------------------
+//---------------------------------------------------------
+// Footer Stuff
+
+.credits.alignleft a {
+    background: url('../assets/img/star.png') no-repeat top left;
+    padding: 0.5em 0 0.5em 1.65em;
+    color: $heading_color;
+    text-decoration: none;
+
+
+}
+
+    .credits.alignright a {
+        color: $heading_color;
+        text-decoration: none;
+    }
+
+    .credits a:hover { color: $link_color; }
+
+
+
+/* Go to top ------------------------------------*/
+.scrollup {
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    bottom: 80px;
+    right: 30px;
+    display: none;
+    background: #000;
+    border-radius: 50%;
+    z-index: 5000;
+    text-decoration: none;
+}
+
+.scrollup i {
+    color: #fff;
+    text-align: center;
+    display: block;
+    line-height: 52px;
+    font-size: 20px; font-size: 1.3rem;
+}
+
+.scrollup:hover { 
+  
+}
+
+.scrollup:hover i {
+        color: $link_color;
+} 
+

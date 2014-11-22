@@ -1,0 +1,551 @@
+h1, h2, h3, h4 {
+	color: #333; 
+}
+
+strong { color: #333; }
+
+.aligncenter { text-align: center; }
+
+.alignright {
+	display: inline;
+	float: right;
+	margin-left: 1em;
+}
+
+.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 1em;
+}
+
+.aligncenter {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.entry-content p { }
+
+p.intro { font-size: 18px; text-align: center; }
+
+.workshop ul { margin-left: 1em; }
+
+//---------------------------------------------------------
+//---------------------------------------------------------
+// General colours depending on background color
+
+/* Events archive / Rebellion */
+.content-odd { 
+
+	h1 span, h2, h3, h4, h5, h6 { color: $copy_color; }
+	h1 { color: #777; }
+    p, li, td { color: #bcbcbc; }
+
+    .event h1,
+    .event p { color: #333; }
+
+    .map {
+
+		p { color: #333; 
+
+			a { 
+
+				&:hover { color: #333; }
+			}
+		}
+	}
+
+}
+
+/* Socials / News */    
+.content-even { 
+	
+	h1 span, h2, h3, h4, h5, h6, p, li, td { color: #333; }
+	h1 { color: #777; }
+
+	.map {
+		p { color: #333; 
+
+			a { 
+
+				&:hover { color: #333; }
+			}
+		}
+	}
+
+}
+
+/* Workshops 
+ * Mid has white background same as even but deep header same as Rebellion pages
+*/
+.content-mid { 
+
+	h1, h1 span { color: #fff; }
+	h2, h3, h4, h5, h6, p, li, td { color: #333; }
+
+    .map {
+
+		p { color: #333; 
+
+			a { 
+
+				&:hover { color: #333; }
+			}
+		}
+	}
+
+
+
+}
+
+
+
+//---------------------------------------------------------
+//---------------------------------------------------------
+// Main event
+
+/* Used in accordian and archive pages */
+h1.event-title {
+
+	font-family: $bold_font;
+	font-weight: 400;
+	font-size: 18px; font-size: 1.3rem;
+	line-height: 1.5;
+	text-align: center;
+	padding: 0;
+
+	@media screen and (min-width: $lap-start) {
+		padding: 1.5em 0.75em 0.75em 0;
+	}
+
+	> span {
+		font-family: $decor_font;
+		font-size: 2.5rem;
+	}
+
+
+	&.alignright,
+	&.alignleft { 
+
+		text-align: center;
+		margin-left: 0;
+		margin-right: 0;
+		float: none;
+		display: block;
+
+	}
+
+		@media screen and (min-width: $lap-start) {
+
+			font-size: 26px; font-size: 1.6rem;
+			line-height: 1;
+
+			> span {
+				font-size: 4rem;
+			}
+			
+			&.alignright { text-align: right; padding-bottom: 0.75em; }
+			&.alignleft { text-align: right; padding-bottom: 0.75em; }
+
+		}
+
+
+}
+
+
+.event-single .heading h1.event-title {
+	padding: 2em 0 2em 0;
+}
+
+	h2.event-meta {
+		font-family: $bold_font;
+		font-weight: 400;
+		font-size: 25px; font-size: 1.6rem;
+		color: #999;
+		text-align: center;
+		margin: 0.5em 0 0.75em 0;
+
+		span {
+			color: #fff;
+		}
+	}
+
+
+/* Used for sub headings i.e. The Speakers, The Lightning Talks */
+.heading {
+	h2,
+   	h3 { 
+   		text-align: center; 
+   		color: $copy_color;
+   	}
+}
+
+.talk-title { 
+	font-weight: 500;
+	border-top: solid 1px #292929;
+	padding-top: 1em;
+	line-height: 29px; line-height: 1.9rem;
+
+	> span { font-weight: 600; }
+}
+
+	/* USed on Workshops single page */
+	.content-mid {
+		.heading {
+			h2,
+		   	h3 { 
+		   		text-align: center; 
+		   		color: #333;
+		   	}
+		}
+
+		h2.event-meta {
+
+			span { color: #333; }
+		}
+	}
+
+
+
+
+//---------------------------------------------------------
+//---------------------------------------------------------
+// Events Archiverlayout
+
+.event {
+
+	.entry-content {
+		> h2 {
+			font-family: $decor_font;
+			font-size: 35px; font-size: 2.2rem;
+			text-align: center;
+		}
+
+
+	}
+}
+
+
+.micro-sponsors p { text-align: center; }
+
+/* Used for columns of text 
+
+*/
+
+//---------------------------------------------------------
+//---------------------------------------------------------
+// News layout
+
+.center-column {
+
+	h2,
+	div.news-meta { 
+
+		padding-bottom: 1em; 
+		color: #333; 
+		span {
+			color: $link_color;
+		}
+	}
+
+	h2 { 
+		background: url('../assets/img/header-rule.jpg') no-repeat bottom center;
+		text-align: center;
+		font-family: $bold_font;
+		font-size: 36px;
+	}
+	
+	div.news-meta { 
+		font-family: $bold_font; 
+
+		p.heading { margin-bottom: 1em; padding-bottom: 1em; background: url("../assets/img/header-rule-small.jpg") no-repeat bottom center; font-size: 16px; }
+		p.bio { font-size: 14px; }
+
+
+		ul.author-links {
+			list-style-type: none;
+			margin: 0 0 1em 0;
+			padding: 0;
+			text-align: center;
+
+			li { 
+				font-size: 30px; 
+				margin: 0 5px;
+				display: inline;
+			}
+		}
+	}
+
+	//p { text-align: justify; }
+}
+
+
+.archive {
+	div.news-meta { 
+		text-align: center;
+	}	
+}
+
+.single {
+	div.news-meta { 
+		text-align: left;
+		margin-top: 16px;
+
+		>img { 
+			max-width: 100%;
+			height: auto;
+		 }
+
+		.news-meta-inner {
+			margin-bottom: 2em; 
+			padding-bottom: 1em; 
+			background: url("../assets/img/header-rule-small.jpg") no-repeat bottom center; 
+		}
+	}	
+}
+
+.estimate { 
+	text-align: center; 
+	font-style: italic; 
+	width: 100%; 
+	display: block;
+	margin-bottom: 2em;
+}
+
+img.sponsor_banner { width: 100%; }
+
+
+// Image on about page
+img.about { max-width: 100%; height: auto; }
+
+//---------------------------------------------------------
+//---------------------------------------------------------
+// News Include
+
+.news-include {
+
+	h4 {
+		font-family: $bold_font;
+		background: url('../assets/img/header-rule-small.jpg') no-repeat bottom center;
+		padding-bottom: 1em;
+		margin-bottom: 1em;
+	}
+
+	img { 
+		max-width: 100%;
+		height: auto;
+	}
+}
+
+//---------------------------------------------------------
+//---------------------------------------------------------
+// Shropgeek TV Archive
+
+.tv-container {
+
+    h3 {
+        font-family: $bold_font;
+        font-size: 18px; font-size: 1.1rem;
+        font-weight: 400;
+        margin-bottom: 0;
+    }
+
+
+
+    h3>span.event-type {
+          
+        font-weight: 900;
+        text-transform: uppercase;
+        display: block;
+
+        span.ss-standard {
+            font-size: 14px; font-size: 0.8rem;
+            padding-right: 10px;
+        }
+    }
+
+    &.single { 
+    
+    	h3 {
+	    	text-align: center; 
+    		margin-bottom: 2rem;
+    	}
+    }
+
+}
+
+
+
+//---------------------------------------------------------
+//---------------------------------------------------------
+// Footer - Widget area, the end and site credits
+
+.footer-content {
+
+	h2 { 
+		font-family: $bold_font;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 22px;
+        color: $heading_color;
+    }
+
+    p { color: $heading_color; }
+
+
+
+	p.alignleft { 
+
+		float: none; text-align: center; display: block;
+		@media screen and (min-width: $tab-start) {
+			text-align: left; float: left; display: inline;
+		}
+
+	}
+
+
+	p.alignright  { 
+		float: none; text-align: center; display: block;
+		@media screen and (min-width: $tab-start) {
+			text-align: right; float: right; display: inline;
+		}
+	}
+
+
+
+
+}
+
+
+
+
+
+
+
+//---------------------------------------------------------
+//---------------------------------------------------------
+// Footer - Used for The End */
+p.decor { 		
+	text-align: center;
+	font-family: $decor_font;
+	font-size: 100px; font-size: 6rem;
+	margin: 30% 0;
+	color: #fcf7ea;
+	line-height: 110rem; line-height: 6.5rem;
+}
+
+
+	p.decor.error {
+		margin: 30% 0 5% 0;
+	}
+
+	div.error {
+		margin: 0 auto 25% auto;
+		
+		@media screen and (min-width: $lap-start) {
+			max-width: 60%;
+		}
+
+		@media screen and (min-width: $tab-start) {
+			max-width: 37%;
+		}
+		
+		>ul li { color: $heading_color; }
+		>ul li a:hover { color: $heading_color; }
+	}
+
+p.credits { 
+	font-size: 14px; font-size: 0.9rem; margin-top: 0.75em;
+}
+
+
+//---------------------------------------------------------
+//---------------------------------------------------------
+// Images */
+
+img.alignleft {
+
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	border: solid 1px #F1F2F3;
+
+	@media screen and (min-width: $tab-start) {
+		display: inline;
+		float: left;
+		margin-right: 1em;
+	}
+}
+	
+img.alignright {
+
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	border: solid 1px #F1F2F3;
+
+	@media screen and (min-width: $tab-start) {
+		display: inline;
+		float: right;
+		margin-left: 1em;	
+	}
+}
+	
+.wp-caption.alignright { 
+	margin-left: 1em; 
+	float: right; 
+}
+.wp-caption.alignleft { 
+	margin-right: 1em; 
+	float: left; 
+}
+
+
+
+.wp-caption {
+	background: #fcfcfc;
+	margin-bottom: 1em;
+	max-width: 100%;
+	padding: 4px;
+}
+
+.wp-caption.alignleft,
+.wp-caption.alignright,
+.wp-caption.aligncenter {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	float: none;
+}
+
+.wp-caption img {
+	display: block;
+	margin: 0 auto;
+	max-width: 100%;
+	height: auto;
+}
+.wp-caption .wp-caption-text,
+.gallery-caption {
+	color: #666;
+	font-family: Georgia, serif;
+	font-size: 12px;
+}
+.wp-caption .wp-caption-text {
+	margin-bottom: 0.6em;
+	padding: 10px 0 5px 40px;
+	position: relative;
+}
+.wp-caption .wp-caption-text:before {
+	color: #666;
+	content: '\2014';
+	font-size: 14px;
+	font-style: normal;
+	font-weight: bold;
+	margin-right: 5px;
+	position: absolute;
+	left: 10px;
+	top: 7px;
+}

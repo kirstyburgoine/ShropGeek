@@ -1,0 +1,503 @@
+/*
+Theme Name: Shropgeek 2014
+Theme URI: http://wwww.kirstyburgoine.co.uk
+Author: Kirsty Burgoine
+Author URI: http://wwww.kirstyburgoine.co.uk
+Description: Brabd new responsive theme for Shropgeek, made with love, SASS (and more specifically inuitcss) and mixture
+Version: 1.0
+*/
+
+
+@charset "UTF-8";
+/*------------------------------------*\
+    STYLE.CSS
+\*------------------------------------*/
+/**
+ * 
+ * sass --watch style.scss:style.min.css --style compressed
+ * 
+ * Here we set up some variables, include the inuit.css framework, then add our
+ * project-specific components afterwards.
+ */
+
+//---------------------------------------------------------
+//---------------------------------------------------------
+//	Some Variables
+
+
+$distressed_bg: url('../assets/img/broken_noise.png');
+
+$bold_font: "franklin-gothic-urw",sans-serif;
+$body_font: "century-old-style-std",serif;
+$decor_font: "corner-store",sans-serif;
+
+$link_color: #e8b52c;
+$social_color: #fff;
+//$heading_color: #faf0d5;
+$heading_color: #fcf7ea;
+$copy_color: #fff;
+
+
+
+/**
+ * Setup
+ */
+@import "defaults";
+@import "inuit.css/inuit";
+
+
+@import "partials/shropgeek_mixins";
+@import "partials/fonts";
+@import "partials/menu-links";
+@import "partials/accordian";
+@import "partials/forms";
+
+
+/**
+ * She’s all yours, cap’n... Begin importing your stuff here.
+ *
+ * WordPress specific stylesheet (for use later)
+ */ 
+/*------------------------------------*\
+    Styles start here
+\*------------------------------------*/
+
+
+
+
+//------------------------------------*/
+
+html{
+    font-family:Georgia, serif;
+    //padding: $base-spacing-unit;
+
+    background-color:#fafafa;
+    color:#4d4d4d;
+}
+
+body { 
+	//@include screen-borders;
+	font-family: $body_font;
+}
+
+	/*
+	body.archive,
+	body.single { 
+
+		background: $distressed_bg; 
+
+		#sb-site { background: $distressed_bg; }
+
+	}
+	*/
+
+#sb-site { overflow: hidden; }
+
+
+/* Used throughout website to contain elements on desktop */
+
+.container {
+	width: 100%;
+	padding: 0.5em;
+
+		@media screen and (min-width: $desk-wide-start) {
+			width: 1100px;
+			margin: 0 auto;
+		}	
+}
+
+.header .container { padding: 0.5em 0.5em 0 0.5em; }
+
+
+.seperator { height: 0; clear: both; }
+
+.display_none {
+  position: absolute;
+  left: -999px;
+  display: none; }
+
+.access {
+  position: absolute;
+  left: -999px;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  background: #000; }
+
+.assistive-text {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px); }
+
+.access p, .access a, .access li, .access h1, .access h2, .access h3, .access h4 {
+  color: #fff; }
+
+//---------------------------------------------------------
+//---------------------------------------------------------
+// General Utility Stuff
+
+
+.pt { /* Padding Top */
+	padding-top: 1.5em; 
+
+	} 
+
+.pb { /* Padding Bottom */
+	padding-bottom: 1em; 
+	} 
+
+.pl { /* Padding Left */
+	padding-left: 1em; 
+	}
+
+.pr { /* Padding Right */
+	padding-right: 1em; 
+	} 
+
+.ptb { /* Padding Top & Bottom */
+	padding-top: 1em; 
+	padding-bottom: 1em; 
+	} 
+
+.plr { /* Padding Left & Right */
+	padding-left: 1em; 
+	padding-right: 1em; 
+	} 
+
+.ptrbl { /* Padding Top, Right, Bottom, Left */
+	padding: 1em; 
+	} 
+
+.pt-half { padding-top: 0.5em; }
+.pb-half { padding-bottom: 0.5em; }
+
+
+.border-top { 
+	border-top: solid 1px #292929; 
+	padding-top: 1em; 
+}
+
+.border-bottom { 
+	border-bottom: solid 1px #292929; 
+	padding-bottom: 0.5em; 
+	margin-bottom: 0.5em;
+
+	@media screen and (min-width: $lap-start) {
+		margin-bottom: 1.5em;
+	}	
+
+}
+
+.no-margin { margin: 0; }
+.no-mb { margin-bottom: 0; }
+
+.content-odd {
+
+	hr {
+		border: 0;
+		background-color: #292929; 
+		height: 1px;
+	}
+
+}
+
+.content-even,
+.content-mid {
+
+	hr {
+		border: 0;
+		background-color: #000; 
+		height: 1px;
+	}
+
+}
+
+
+
+.mobile-display-none {
+	display: none;
+
+	@media screen and (min-width: $desk-start) {
+		display: inline-block;
+	}
+}
+
+
+//---------------------------------------------------------
+//---------------------------------------------------------
+// Header Area
+
+/* top section containing nav and mobile stuff */
+.header {
+	background: #000;
+}
+
+
+/* Used for socials header */
+.content-even { 
+	.intro-bg {
+
+		background-image: url('../assets/img/drinks-bg.jpg'); 
+	}
+}
+
+/* Used for workshops header */
+.content-mid { 
+	.intro-bg {
+
+		background-image: url('../assets/img/shropgeek-workshops.jpg'); 
+	}
+}
+
+.intro-bg {
+
+
+	background-image: url('../assets/img/shropgeek-17.jpg'); 
+	@include bg-images;
+	//padding: 4% 0;
+	//background-position: center; //@include bg-images;
+
+	img {
+		width: 50%; 
+		margin: 0 auto;
+
+		@media screen and (min-width: $lap-start) {
+			max-width: 240px; 
+		}
+
+		@media screen and (min-width: $desk-start) {
+			
+		}
+
+		@media screen and (min-width: $desk-wide-start) {
+			max-width: 300px; 
+		}
+
+		&.logo-event-single {
+			width: 35%;
+			padding: 0 1% 1% 1%;
+			background: #000; 
+
+			@media screen and (min-width: $lap-start) {
+				max-width: 140px; 
+			}
+
+			@media screen and (min-width: $desk-start) {
+				
+			}
+
+			@media screen and (min-width: $desk-wide-start) {
+				max-width: 140px; 
+			}
+		}
+	}
+
+
+
+/*
+
+*/
+}
+
+.logo-container {
+	padding: 4%;
+}
+
+.logo {
+  	animation: broadcast 2.5s steps(4) infinite;
+  	-webkit-animation: broadcast 2.5s steps(4) infinite;
+  	background: url('../assets/img/shropgeek-presents-all.png') 0 0 no-repeat; 
+  	background-size: 250px;
+  	height:250px;
+    width:250px;
+    margin: 0 auto;
+    padding: 0;
+    @include hide-text;
+
+
+
+
+}
+
+	@keyframes broadcast {  
+		0% {background-position: 0 0; } 
+		100% {background-position: 0 -1000px; } 
+
+		
+
+	}
+
+	@-webkit-keyframes broadcast {  
+		0% {background-position: 0 0; } 
+		100% {background-position: 0 -1000px; } 
+
+
+	}
+
+
+
+
+
+
+
+
+//---------------------------------------------------------
+//---------------------------------------------------------
+// General Content Stuff
+
+/* USed for news archive */
+.center-column {
+	width: 100%;
+
+	@media screen and (min-width: $lap-start) {
+		width: 80%
+	}
+
+	@media screen and (min-width: $desk-start) {
+		width: 70%
+	}
+
+	margin: 0 auto;
+
+	.entry-content {
+		p {
+			font-size: 21px; line-height: 36px; 
+		}
+	}
+}
+
+.single .center-column {
+
+	@media screen and (min-width: $desk-start) {
+		width: 80%
+	}
+
+}
+
+/* bg's on homepage events */
+.content-odd { background: $distressed_bg; }
+.content-even { background: #fff; }
+
+
+/* Used in columns so that some can be hidden on mobile devices */
+.lap-none { 
+	display: none;
+
+	@media screen and (min-width: $lap-start) {
+		display: inline-block;
+	}
+
+}
+
+
+//---------------------------------------------------------
+//---------------------------------------------------------
+// Main Events Archive
+
+.event { 
+	border: solid 1px #000;
+	background: #fff; 
+	margin-bottom: 1em;
+
+
+		.tab-1 h3, .tab-7 h3 { color: #000; }  
+        .tab-2 h3, .tab-8 h3 { color: #000; } 
+        .tab-3 h3, .tab-9 h3 { color: #000; }
+        .tab-4 h3, .tab-10 h3 { color: #000; } 
+
+		.tab:hover { cursor: default; }
+		.tab-1:hover, .tab-7:hover  { background-color: #e8b52c; color: #000; }  
+        .tab-2:hover, .tab-8:hover { background-color: #f1d380; color: #000; } 
+        .tab-3:hover, .tab-9:hover { background-color: #f8e7bc; color: #000; }
+        .tab-4:hover, .tab-10:hover { background-color: #AA9A81; color: #000; } 
+        .tab-5:hover, .tab-11:hover { background-color: #534741; color: $copy_color; }  
+        .tab-6:hover, .tab-12:hover { background-color: #071205; color: $copy_color; }  
+
+        .tab-5:hover h3, .tab-11:hover h3 { color: $copy_color; }  
+        .tab-6:hover h3, .tab-12:hover h3 { color: $copy_color; }   
+
+	.entry-content {
+		padding: 1em;
+
+		img {
+			background: #000;	
+
+		}
+	}
+}
+
+
+.map {
+	height: 450px;
+
+
+}
+
+
+//---------------------------------------------------------
+//---------------------------------------------------------
+// ShropGeek TV Archive
+
+.tv-container { margin-bottom: 2rem; }
+
+//---------------------------------------------------------
+//---------------------------------------------------------
+// Footer - News Include
+
+.news-include {
+	background: #fcf7ea;
+	margin-top: -1px;
+
+	.border-top{ padding-top: 3.5em; }
+
+	// Excerpt for each news item
+	.entry-content {
+		display: none;
+
+		@media screen and (min-width: $lap-start) {
+			display: block;
+		}
+
+		> p {
+			color: #333;
+		}
+	}
+}
+
+
+
+
+//---------------------------------------------------------
+//---------------------------------------------------------
+// Footer
+
+.footer-content {
+	background: $distressed_bg;
+
+}
+
+	img.rev {
+		@include transition;
+		opacity: 1;
+		-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=1)";
+		filter: alpha(opacity=1);
+	}
+
+		img.rev:hover {
+			opacity: 0.5;
+			-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0.5)";
+			filter: alpha(opacity=0.5);
+		}
+
+	.the-end {
+		background: url('../assets/img/the-end-bg.png') no-repeat center;
+		background-size: 100% 100%;
+	}
+
+	.site-credits { margin-bottom: 0.5em; }
+
+
+
+
+
+
+

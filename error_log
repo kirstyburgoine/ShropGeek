@@ -1,0 +1,1 @@
+[02-Apr-2014 09:40:19 UTC] PHP Fatal error:  Call to undefined function get_header() in /home/shropgee/public_html/wp-content/themes/shropgeek2014/index.php on line 9

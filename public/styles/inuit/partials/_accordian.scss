@@ -1,0 +1,152 @@
+//---------------------------------------------------------
+//---------------------------------------------------------
+// Main Accordian Effect on Homepage for all events */
+
+
+
+    div.tab { /* main tabs for each event */
+       
+        padding: 0.4em 0;
+        text-align: center;
+        margin-bottom: 0;
+        border-bottom: solid 1px #000;
+        color: #333;
+        
+        position: relative;
+        @include transition;
+
+        /*  different colour tabs */
+        &.tab-1, &.tab-7 { background-color: #e8b52c; }  
+        &.tab-2, &.tab-8  { background-color: #f1d380; } 
+        //&.tab-three { background-color: #F3E4AF; }  
+        //&.tab-three { background-color: #f6e1ab; }
+        &.tab-3, &.tab-9 { background-color: #f8e7bc; }
+        &.tab-4, &.tab-10  { background-color: #AA9A81;} 
+        &.tab-5, &.tab-11 { background-color: #534741; color: $copy_color; }  
+        &.tab-6, &.tab-12 { background-color: #071205; color: $copy_color; }  
+
+
+
+        &:hover { cursor: pointer; background: $copy_color; color: #333; }
+
+        .container { padding: 0; }
+
+        h3 {
+            font-family: $bold_font;
+            font-size: 18px; font-size: 1.1rem;
+            font-weight: 400;
+            margin-bottom: 0;
+        }
+
+
+
+        h3>span.event-type {
+          
+            font-weight: 900;
+            text-transform: uppercase;
+            display: block;
+
+            span.ss-standard {
+                font-size: 14px; font-size: 0.8rem;
+                padding-right: 10px;
+            }
+        }
+
+        @media screen and (min-width: $tab-start) {
+            h3>span.event-type {
+                display: inline;
+            }
+        }
+
+        
+
+
+}
+/*
+        .ui-icon {
+            width: 16px;
+            height: 16px;
+        }
+
+        
+        .ui-accordion-header-icon {
+            position: absolute;
+            left: .5em;
+            top: 50%;
+            margin-top: -8px;
+        }
+
+
+    .ui-state-default .ui-icon { background-image: url(../assets/img/ui-icons_454545_256x240.png); }
+    .ui-state-active .ui-icon { background-image: url(../assets/img/ui-icons_454545_256x240.png); }
+
+    .ui-icon-triangle-1-n { background-position: 0 -16px; }
+    .ui-icon-triangle-1-ne { background-position: -16px -16px; }
+    .ui-icon-triangle-1-e { background-position: -32px -16px; }
+    .ui-icon-triangle-1-se { background-position: -48px -16px; }
+    .ui-icon-triangle-1-s { background-position: -64px -16px; }
+    .ui-icon-triangle-1-sw { background-position: -80px -16px; }
+    .ui-icon-triangle-1-w { background-position: -96px -16px; }
+    .ui-icon-triangle-1-nw { background-position: -112px -16px; }
+    .ui-icon-triangle-2-n-s { background-position: -128px -16px; }
+    .ui-icon-triangle-2-e-w { background-position: -144px -16px; }
+
+*/
+    /* Main content area for each events */
+    .event-content {
+
+        h4 { font-weight: 500; }
+
+        h5.event-meta {
+            padding-top: 17px;
+            font-family: $bold_font; 
+            font-weight: 500;
+            font-size: 20px; font-size: 1.2rem;
+        }
+
+        h5.event-meta.social { padding-top:0; line-height: 25px; line-height: 1.6rem; }
+        
+
+        &.content-odd {
+            h5.event-meta {
+
+                color: #bcbcbc;
+
+                span { color: $copy_color; }
+            }
+        }
+
+        &.content-even {
+            h5.event-meta {
+                color: #333;
+
+                span { color: #777; }
+            }
+        }
+
+        .social-menu { 
+            float: none; 
+            text-align: center; 
+            margin-bottom: 1em;
+
+            > li { }
+            > li a { font-size: 12px; font-size: 1.2rem; }
+
+            @media screen and (min-width: $tab-start) {
+                > li a { font-size: 16px; font-size: 1.6rem; }
+            }
+        }
+
+        img.speakers { width: 100%; margin-bottom: 24px; }
+
+
+    }
+
+
+
+.map iframe { width: 100%; }
+    
+
+
+
+

@@ -1,0 +1,27 @@
+{
+  "convertHtml": {
+    "relativePaths": false
+  },
+  "customRubyPath": null,
+  "debug": false,
+  "domain": null,
+  "followLeader": false,
+  "lintScripts": false,
+  "modelSource": null,
+  "preprocessorLocations": [
+    "public"
+  ],
+  "preprocessorScriptOutput": "public/assets/js",
+  "preprocessorStyleOutput": "public/styles",
+  "projectDescription": "New WP Theme for Shropgeek",
+  "projectName": "shropgeek-2014-ACTIVE",
+  "publishedId": null,
+  "serverHostname": null,
+  "serverPort": null,
+  "simpleModePartnerServer": "localhost:8888/Shropgeek-2014/website-ACTIVE",
+  "templateDefaultLayout": "layout",
+  "templateDefaultPage": "index",
+  "templateDirectory": "templates",
+  "type": "simple",
+  "useCompass": false
+}

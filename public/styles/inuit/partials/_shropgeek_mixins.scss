@@ -1,0 +1,46 @@
+//---------------------------------------------------------
+// Miscallaneous Mixins specific to the Shropgeek website
+
+
+@mixin screen-borders {
+	@media screen and (min-width: $lap-start) {
+		/* 481px color: Yellow */
+		border: solid 5px #ffcc00;
+	}
+
+	@media screen and (min-width: $tab-start) {
+		/* 754px color: Green */
+		border: solid 5px #33cc33;
+	}
+
+	@media screen and (min-width: $desk-start) {
+		/* 1024px color: Red */
+		border: solid 5px #ff0000;
+	}
+
+	@media screen and (min-width: $desk-wide-start) {
+		/* 1200px Color: Blue */
+		border: solid 5px #0000ff; 
+	}
+}
+
+@mixin hide-text{
+    overflow:hidden;
+    text-indent:-9000px;
+    display:block;
+}
+
+@mixin bg-images { 
+	//background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 0 50%;
+}
+
+@mixin transition {
+	-webkit-transition: .4s all ease;
+	-moz-transition: .4s all ease;
+	-o-transition: .4s all ease;
+	-ms-transition: .4s all ease;
+	transition: .4s all ease;
+}
