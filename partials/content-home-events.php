@@ -33,7 +33,7 @@ endif;
 	<div class="container">
 		
 		<h3>
-			<span class="event-type"><span class="ss-standard <?php if ( $i == "2" ) : ?>ss-dropdown<?php else : ?>ss-directright<?php endif;?>"></span><?php echo $types[0]; ?> </span> <?php the_date('F jS Y'); ?>
+			<span class="event-type"><span class="ss-standard <?php if ( $i == "4" ) : ?>ss-dropdown<?php else : ?>ss-directright<?php endif;?>"></span><?php echo $types[0]; ?> </span> <?php the_date('F jS Y'); ?>
 		</h3>
 	
 	</div>
@@ -68,7 +68,7 @@ endif;
 				get_template_part( 'partials/content', 'home-workshop' );
 
 
-			elseif ( $types[0] == "Workshop") :
+			elseif ( $types[0] == "Reloaded") :
 
 				get_template_part( 'partials/content', 'home-reloaded' );
 

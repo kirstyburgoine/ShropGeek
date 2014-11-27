@@ -3,6 +3,8 @@
 $today = getdate();
 //print_r ( $today );
 
+
+
 $today_args = array(
 	'post_type' => 'events',
 	'date_query' => array(
@@ -26,6 +28,20 @@ $today_query = new WP_Query( $today_args );
 $i = 0;
 
 	while ( $today_query->have_posts() ) : $today_query->the_post();
+
+	// Get all of the custom terms for the events post
+$terms = get_the_terms($post->ID, 'event_type');
+// of there are terms and no errors
+if ( $terms && ! is_wp_error( $terms ) ) : 
+	// Create an array to store specific terms for each post
+	$types = array();
+
+	foreach ( $terms as $term ) {
+		// populate that array for use throughout the event details
+		$types[] = $term->name;
+	}
+
+endif;
 		
 		$i++;
 		$booking_link = get_field('booking_link');
@@ -48,7 +64,7 @@ if ( $i > 1 ) :?>--><?php endif; ?><div class="grid__item palm-one-whole lap-one
 			<h3><?php the_date('F jS Y'); ?></h3>
 		</div>
 
-		<div class="entry-content">
+		<div class="entry-content <?php if ( $types[0] == "Reloaded") : ?>reloaded<?php endif; ?>">
 
 			<h2 <?php if ( $subject_logo ) : ?>class="no-margin"<?php endif;?>><a href="<?php the_permalink();?>"><?php the_title(); ?></a></h2>
 

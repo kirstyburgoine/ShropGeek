@@ -17,7 +17,7 @@ $.slidebars();
   $( "#accordion" ).accordion({
     heightStyle: "content",
     collapsible: true,
-    active: -5 // -1 is bottom and then goes upwards to -6
+    active: -3 // -1 is bottom and then goes upwards to -6
   });
 
   $( "#accordion-resizer" ).resizable({

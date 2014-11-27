@@ -153,6 +153,36 @@ h1.event-title {
 
 }
 
+// used on the homepage and archive page for Reloaded
+h1.reloaded-event-title {
+	font-family: $bold_font;
+	font-weight: 400;
+	font-size: 18px; font-size: 1.3rem;
+	line-height: 1.5;
+	text-align: center;
+	padding: 0;
+
+	@media screen and (min-width: $lap-start) {
+		padding: 1.5em 0.75em 0.75em 0;
+	}
+
+	> span {
+		font-weight: 900;
+		font-size: 2.5rem;
+	}
+
+	@media screen and (min-width: $lap-start) {
+
+		font-size: 26px; font-size: 1.6rem;
+		line-height: 1;
+
+		> span {
+			font-size: 4rem;
+		}
+
+	}
+}
+
 
 .event-single .heading h1.event-title {
 	padding: 2em 0 2em 0;
@@ -268,6 +298,15 @@ h1.event-title {
 			font-family: $decor_font;
 			font-size: 35px; font-size: 2.2rem;
 			text-align: center;
+		}
+
+		&.reloaded {
+			> h2 {
+				font-family: $bold_font;
+				font-size: 35px; font-size: 2.2rem;
+				text-align: center;
+				font-weight: 900;
+			}
 		}
 
 
