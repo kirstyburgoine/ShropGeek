@@ -3225,9 +3225,12 @@ h1.event-title {
 .event-single .heading h1.event-title {
   padding: 2em 0 2em 0; }
 
-.reloaded .heading h1.event-title span {
-  font-family: "franklin-gothic-urw", sans-serif;
-  font-weight: 700; }
+.reloaded .heading h1.event-title {
+  color: #fcf7ea; }
+  .reloaded .heading h1.event-title > span {
+    font-family: "franklin-gothic-urw", sans-serif;
+    color: #fcf7ea;
+    font-weight: 900; }
 
 h2.event-meta {
   font-family: "franklin-gothic-urw", sans-serif;
