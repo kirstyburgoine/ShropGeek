@@ -406,7 +406,7 @@ $micro_sponsors = get_field('micro_sponsors');
 				<?php if ( $venue_name && $venue_address ) : ?><br /><?php endif; ?>
 				<?php if ( $venue_address ) : ?><?php echo $venue_address; ?><?php endif; ?></p>
 
-				<p><?php echo $venue_tel; ?> - <a href="http://www.twitter.com/<?php echo $venue_twitter; ?>">@<?php echo $venue_twitter; ?></a> <br />
+				<p><?php echo $venue_tel; ?><?php if ( $venue_twitter ) : ?> - <a href="http://www.twitter.com/<?php echo $venue_twitter; ?>">@<?php echo $venue_twitter; ?></a><?php endif; ?> <br />
 				<a href="http://<?php echo $venue_website; ?>"><?php echo $venue_website; ?></a></p>
 						
 				

@@ -3169,7 +3169,7 @@ p.intro {
 .content-even h1 span, .content-even h2, .content-even h3, .content-even h4, .content-even h5, .content-even h6, .content-even p, .content-even li, .content-even td {
   color: #copy_color_alt; }
 .content-even h1 {
-  color: #777; }
+  color: #copy_color_alt; }
 .content-even .map p {
   color: #4d4d4d; }
   .content-even .map p a:hover {

@@ -62,7 +62,7 @@ p.intro { font-size: 18px; text-align: center; }
 .content-even { 
 	
 	h1 span, h2, h3, h4, h5, h6, p, li, td { color: #copy_color_alt; }
-	h1 { color: #777; }
+	h1 { color: #copy_color_alt; }
 
 	.map {
 		p { color: $copy_color_alt; 

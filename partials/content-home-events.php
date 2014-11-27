@@ -67,6 +67,11 @@ endif;
 
 				get_template_part( 'partials/content', 'home-workshop' );
 
+
+			elseif ( $types[0] == "Workshop") :
+
+				get_template_part( 'partials/content', 'home-reloaded' );
+
 			else :
 
 				get_template_part( 'partials/content', 'home-rebellion' );
