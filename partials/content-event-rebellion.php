@@ -134,11 +134,28 @@ $micro_sponsors = get_field('micro_sponsors');
 			// This is part of the speakers flexible content simply because its logical for 
 			// the layout of this page and it may be useful to have a general content area 
 			// in this later 
+			if ( get_row_layout() == 'standard_content' ) :
 
-			if ( get_row_layout() == 'main_speakers' ) :
+				$title = get_sub_field('sc_title'); 
+				$column_1 = get_sub_field('sc_content'); 
+				$column_2 = get_sub_field('sc_content_2'); 
 
-				
+				if ( $title ) : ?>
+				<div class="grid__item one-whole heading pt">
+					<hr>
+					<h2><?php echo $title;?> </h2>					
+				</div>
+				<?php endif; 
+				?>
 
+				<div class="grid__item palm-one-whole one-half pt">
+					<?php echo $column_1; ?>				
+				</div>
+
+				<div class="grid__item palm-one-whole one-half pt">
+					<?php echo $column_2; ?>				
+				</div>
+			<?php
 			endif;
 
 			//------------------------------------------------------------------------------
@@ -174,6 +191,7 @@ $micro_sponsors = get_field('micro_sponsors');
 					
 					$speaker_name = get_sub_field('hs_speaker_name');
 					$speaker_image = get_sub_field('hs_speaker_image');
+					$placeholder_image = get_sub_field('placeholder_images');
 					$speaker_bio = get_sub_field('hs_speaker_bio');
 					$talk_topic = get_sub_field('talk_topic');
 					$talk_outline = get_sub_field('hs_talk_outline');
@@ -186,8 +204,12 @@ $micro_sponsors = get_field('micro_sponsors');
 					if ( $c > 1 ) :?>--><?php endif; ?><div class="grid__item palm-one-whole one-third pb">
 								      		
 						<h4 class="aligncenter"><?php echo $speaker_name; ?></h4>
-
+						
+						<?php if ($speaker_image) : ?>
 						<img src="<?php echo $speaker_image['sizes']['standard_thumbnail'];?>" alt="<?php echo $speaker_image['alt'];?>" class="img--center speakers">
+						<?php else : ?>
+						<img src="<?php echo $placeholder_image;?>" alt="" class="img--center speakers">
+						<?php endif; ?>
 
 						<ul class="nav social-menu">
 							<?php if ( $speaker_website ) : ?><li><a href="<?php echo $speaker_website; ?>" class="ss-social-circle ss-icon" title="Link to <?php echo $speaker_name; ?>'s website">Link</a></li><?php endif; ?>
