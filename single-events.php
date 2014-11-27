@@ -138,7 +138,7 @@ $title_strapline = get_field('title_strapline');
 	// ------------------------------------------------------------------------------------------------------------
 	// ------------------------------------------------------------------------------------------------------------
 	// ElseIf Reloaded use reloaded layout 
-	elseif ( $types[0] == "Workshop") : ?>
+	elseif ( $types[0] == "Reloaded") : ?>
 
 	<div class="grid__item one-whole" role="main">
 

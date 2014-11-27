@@ -36,6 +36,8 @@ $social_color: #fff;
 //$heading_color: #faf0d5;
 $heading_color: #fcf7ea;
 $copy_color: #fff;
+$copy_color_alt: #4d4d4d;
+$strong: #333;
 
 
 
@@ -72,7 +74,7 @@ html{
     //padding: $base-spacing-unit;
 
     background-color:#fafafa;
-    color:#4d4d4d;
+    color: $copy_color_alt;
 }
 
 body { 

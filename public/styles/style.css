@@ -3159,21 +3159,21 @@ p.intro {
   color: #bcbcbc; }
 .content-odd .event h1,
 .content-odd .event p {
-  color: #333; }
+  color: #4d4d4d; }
 .content-odd .map p {
-  color: #333; }
+  color: #4d4d4d; }
   .content-odd .map p a:hover {
-    color: #333; }
+    color: #4d4d4d; }
 
 /* Socials / News */
 .content-even h1 span, .content-even h2, .content-even h3, .content-even h4, .content-even h5, .content-even h6, .content-even p, .content-even li, .content-even td {
-  color: #333; }
+  color: #copy_color_alt; }
 .content-even h1 {
   color: #777; }
 .content-even .map p {
-  color: #333; }
+  color: #4d4d4d; }
   .content-even .map p a:hover {
-    color: #333; }
+    color: #4d4d4d; }
 
 /* Workshops 
  * Mid has white background same as even but deep header same as Rebellion pages
@@ -3181,11 +3181,11 @@ p.intro {
 .content-mid h1, .content-mid h1 span {
   color: #fff; }
 .content-mid h2, .content-mid h3, .content-mid h4, .content-mid h5, .content-mid h6, .content-mid p, .content-mid li, .content-mid td {
-  color: #333; }
+  color: #4d4d4d; }
 .content-mid .map p {
-  color: #333; }
+  color: #4d4d4d; }
   .content-mid .map p a:hover {
-    color: #333; }
+    color: #4d4d4d; }
 
 /* Used in accordian and archive pages */
 h1.event-title {
@@ -3231,6 +3231,8 @@ h1.event-title {
     font-family: "franklin-gothic-urw", sans-serif;
     color: #fcf7ea;
     font-weight: 900; }
+.reloaded h2.event-meta span {
+  color: #4d4d4d; }
 
 h2.event-meta {
   font-family: "franklin-gothic-urw", sans-serif;
@@ -3262,9 +3264,9 @@ h2.event-meta {
 .content-mid .heading h2,
 .content-mid .heading h3 {
   text-align: center;
-  color: #333; }
+  color: #4d4d4d; }
 .content-mid h2.event-meta span {
-  color: #333; }
+  color: #4d4d4d; }
 
 .event .entry-content > h2 {
   font-family: "corner-store", sans-serif;
@@ -3281,7 +3283,7 @@ h2.event-meta {
 .center-column h2,
 .center-column div.news-meta {
   padding-bottom: 1em;
-  color: #333; }
+  color: #4d4d4d; }
   .center-column h2 span,
   .center-column div.news-meta span {
     color: #e8b52c; }

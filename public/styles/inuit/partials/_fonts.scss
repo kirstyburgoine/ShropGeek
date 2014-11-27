@@ -1,8 +1,8 @@
 h1, h2, h3, h4 {
-	color: #333; 
+	color: $strong; 
 }
 
-strong { color: #333; }
+strong { color: $strong; }
 
 .aligncenter { text-align: center; }
 
@@ -43,15 +43,15 @@ p.intro { font-size: 18px; text-align: center; }
     p, li, td { color: #bcbcbc; }
 
     .event h1,
-    .event p { color: #333; }
+    .event p { color: $copy_color_alt; }
 
     .map {
 
-		p { color: #333; 
+		p { color: $copy_color_alt; 
 
 			a { 
 
-				&:hover { color: #333; }
+				&:hover { color: $copy_color_alt; }
 			}
 		}
 	}
@@ -61,15 +61,15 @@ p.intro { font-size: 18px; text-align: center; }
 /* Socials / News */    
 .content-even { 
 	
-	h1 span, h2, h3, h4, h5, h6, p, li, td { color: #333; }
+	h1 span, h2, h3, h4, h5, h6, p, li, td { color: #copy_color_alt; }
 	h1 { color: #777; }
 
 	.map {
-		p { color: #333; 
+		p { color: $copy_color_alt; 
 
 			a { 
 
-				&:hover { color: #333; }
+				&:hover { color: $copy_color_alt; }
 			}
 		}
 	}
@@ -81,16 +81,16 @@ p.intro { font-size: 18px; text-align: center; }
 */
 .content-mid { 
 
-	h1, h1 span { color: #fff; }
-	h2, h3, h4, h5, h6, p, li, td { color: #333; }
+	h1, h1 span { color: $copy_color; }
+	h2, h3, h4, h5, h6, p, li, td { color: $copy_color_alt; }
 
     .map {
 
-		p { color: #333; 
+		p { color: $copy_color_alt; 
 
 			a { 
 
-				&:hover { color: #333; }
+				&:hover { color: $copy_color_alt; }
 			}
 		}
 	}
@@ -172,7 +172,17 @@ h1.event-title {
 		}
 
 	}
+
+	h2.event-meta {
+
+		span {
+			color: $copy_color_alt;
+		}
+	}
+
 }
+
+
 
 	h2.event-meta {
 		font-family: $bold_font;
@@ -183,7 +193,7 @@ h1.event-title {
 		margin: 0.5em 0 0.75em 0;
 
 		span {
-			color: #fff;
+			color: $copy_color;
 		}
 	}
 
@@ -212,13 +222,13 @@ h1.event-title {
 			h2,
 		   	h3 { 
 		   		text-align: center; 
-		   		color: #333;
+		   		color: $copy_color_alt;
 		   	}
 		}
 
 		h2.event-meta {
 
-			span { color: #333; }
+			span { color: $copy_color_alt; }
 		}
 	}
 
@@ -259,7 +269,7 @@ h1.event-title {
 	div.news-meta { 
 
 		padding-bottom: 1em; 
-		color: #333; 
+		color: $copy_color_alt; 
 		span {
 			color: $link_color;
 		}
