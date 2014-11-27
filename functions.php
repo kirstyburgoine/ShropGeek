@@ -433,6 +433,7 @@ function form_submit_button($button,$form){
 }
 add_filter('gform_submit_button','form_submit_button',10,2);
 
+
 // split the form into two columns based on section breaks
 function gform_column_splits($content, $field, $value, $lead_id, $form_id) {
 	if(!IS_ADMIN) { // only perform on the front end

@@ -142,7 +142,7 @@ $micro_sponsors = get_field('micro_sponsors');
 				$title = get_sub_field('sc_title'); 
 				$column_1 = get_sub_field('sc_content'); ?>
 
-				<div class="center-column">
+			<div class="center-column">
 				<?php
 				if ( $title ) : ?>
 				<div class="grid__item one-whole heading pt">

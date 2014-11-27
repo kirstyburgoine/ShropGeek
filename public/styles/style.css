@@ -3891,13 +3891,22 @@ input {
   display: none; }
 
 .gform_wrapper.two-column_wrapper ul.gform_fields.gform_column {
-  display: block;
-  float: left;
-  width: 46%;
-  margin: 0 2% !important; }
+  display: block; }
+  @media screen and (min-width: 481px) {
+    .gform_wrapper.two-column_wrapper ul.gform_fields.gform_column {
+      float: left;
+      width: 46%;
+      margin: 0 2% !important; } }
 
 .gform_wrapper.two-column_wrapper ul.gform_column li.gsection:first-child {
   display: none; }
+
+.thanks {
+  background: #f8e7bc;
+  border: solid 1px #AA9A81;
+  padding: 1em 1em 0 1em; }
+  .thanks h4 {
+    font-weight: 700; }
 
 /**
  * She’s all yours, cap’n... Begin importing your stuff here.
