@@ -140,24 +140,22 @@ $micro_sponsors = get_field('micro_sponsors');
 			if ( get_row_layout() == 'standard_content' ) :
 
 				$title = get_sub_field('sc_title'); 
-				$column_1 = get_sub_field('sc_content'); 
-				$column_2 = get_sub_field('sc_content_2'); 
+				$column_1 = get_sub_field('sc_content'); ?>
 
+				<div class="center-column">
+				<?php
 				if ( $title ) : ?>
 				<div class="grid__item one-whole heading pt">
 					<hr>
 					<h2><?php echo $title;?> </h2>					
 				</div>
-				<?php endif; 
-				?>
+				<?php endif; ?>
 
-				<div class="grid__item palm-one-whole one-half pt">
+				<div class="grid__item one-whole pt">
 					<?php echo $column_1; ?>				
-				</div><!--
-
-				--><div class="grid__item palm-one-whole one-half pt">
-					<?php echo $column_2; ?>				
 				</div>
+
+			</div>
 			<?php
 			endif;
 

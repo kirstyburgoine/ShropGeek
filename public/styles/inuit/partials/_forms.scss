@@ -16,18 +16,23 @@ input {
 .container .gform_wrapper input[type=email], 
 .container .gform_wrapper input[type=tel], 
 .container .gform_wrapper input[type=number], 
-.container .gform_wrapper input[type=password] {
+.container .gform_wrapper input[type=password],
+.container .gform_wrapper textarea {
 font-size: 14px;
+border: solid 1px #ccc;
 }
 
 
 .gform_wrapper.two-column_wrapper ul.gform_fields {
 display: none;
 }
+
 .gform_wrapper.two-column_wrapper ul.gform_fields.gform_column {
 display: block;
 float: left;
-width: 50%;
+width: 46%;
+margin: 0 2%!important;
+
 }
 .gform_wrapper.two-column_wrapper ul.gform_column li.gsection:first-child {
 display: none;
