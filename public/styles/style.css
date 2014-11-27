@@ -3231,7 +3231,15 @@ h1.event-title {
     font-family: "franklin-gothic-urw", sans-serif;
     color: #fcf7ea;
     font-weight: 900; }
+.reloaded .heading h2 {
+  font-family: "franklin-gothic-urw", sans-serif;
+  color: #4d4d4d;
+  font-weight: 700; }
 .reloaded h2.event-meta span {
+  color: #4d4d4d; }
+
+.event-content .reloaded h4 {
+  font-family: "franklin-gothic-urw", sans-serif;
   color: #4d4d4d; }
 
 h2.event-meta {
@@ -3860,6 +3868,28 @@ input {
   padding: 2.5%; }
 
 .enews label {
+  display: none; }
+
+.container .gform_wrapper .top_label .gfield_label {
+  font-family: "franklin-gothic-urw", sans-serif; }
+
+.container .gform_wrapper input[type=text],
+.container .gform_wrapper input[type=url],
+.container .gform_wrapper input[type=email],
+.container .gform_wrapper input[type=tel],
+.container .gform_wrapper input[type=number],
+.container .gform_wrapper input[type=password] {
+  font-size: 14px; }
+
+.gform_wrapper.two-column_wrapper ul.gform_fields {
+  display: none; }
+
+.gform_wrapper.two-column_wrapper ul.gform_fields.gform_column {
+  display: block;
+  float: left;
+  width: 50%; }
+
+.gform_wrapper.two-column_wrapper ul.gform_column li.gsection:first-child {
   display: none; }
 
 /**

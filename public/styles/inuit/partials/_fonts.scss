@@ -161,28 +161,44 @@ h1.event-title {
 // Added for Reloaded page layout
 .reloaded {
 
-	.heading h1.event-title {
+	.heading {
+
+		// Main event i.e. Rebellion or Reloaded
+		h1.event-title {
 
 		color: $heading_color;
 
-		> span {
+			> span {
+				font-family: $bold_font;
+				color: $heading_color;
+				font-weight: 900;
+			}
+		}
+
+		h2 {
 			font-family: $bold_font;
-			color: $heading_color;
-			font-weight: 900;
+			color: $copy_color_alt;
+			font-weight: 700;
 		}
 
 	}
 
+	// Detail directly below bg image
 	h2.event-meta {
 
 		span {
 			color: $copy_color_alt;
 		}
 	}
-
 }
 
 
+	// titles for speakers and partners
+	.event-content .reloaded h4 {
+		font-family: $bold_font;
+			color: $copy_color_alt;
+			
+	}
 
 	h2.event-meta {
 		font-family: $bold_font;

@@ -153,9 +153,9 @@ $micro_sponsors = get_field('micro_sponsors');
 
 				<div class="grid__item palm-one-whole one-half pt">
 					<?php echo $column_1; ?>				
-				</div>
+				</div><!--
 
-				<div class="grid__item palm-one-whole one-half pt">
+				--><div class="grid__item palm-one-whole one-half pt">
 					<?php echo $column_2; ?>				
 				</div>
 			<?php

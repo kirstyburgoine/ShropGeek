@@ -9,3 +9,26 @@ input {
 
 
 .enews label { display: none; }
+
+.container .gform_wrapper .top_label .gfield_label { font-family: $bold_font; }
+.container .gform_wrapper input[type=text], 
+.container .gform_wrapper input[type=url], 
+.container .gform_wrapper input[type=email], 
+.container .gform_wrapper input[type=tel], 
+.container .gform_wrapper input[type=number], 
+.container .gform_wrapper input[type=password] {
+font-size: 14px;
+}
+
+
+.gform_wrapper.two-column_wrapper ul.gform_fields {
+display: none;
+}
+.gform_wrapper.two-column_wrapper ul.gform_fields.gform_column {
+display: block;
+float: left;
+width: 50%;
+}
+.gform_wrapper.two-column_wrapper ul.gform_column li.gsection:first-child {
+display: none;
+}
