@@ -38,7 +38,7 @@ $title_strapline = get_field('title_strapline');
 
 // Different classes in here for layouts and colours
 ?>
-<div class="event-content <?php if ( $types[0] == "Rebellion") : echo " content-odd"; elseif ( $types[0] == "Workshop" ) : echo " content-mid"; else : echo " content-even"; endif; ?>">
+<div class="event-content <?php if ( $types[0] == "Rebellion") : echo " content-odd"; elseif ( $types[0] == "Workshop" ) : echo " content-mid"; elseif ($types[0] == "Reloaded") : echo " content-even reloaded"; else : echo " content-even"; endif; ?>">
 
 <div class="grid">
 
@@ -54,7 +54,7 @@ $title_strapline = get_field('title_strapline');
 
 				<div id="features_area" class="grid__item one-whole heading">
 
-					<?php if ( $types[0] == "Rebellion" || $types[0] == "Workshop") : ?>
+					<?php if ( $types[0] == "Rebellion" || $types[0] == "Workshop" || $types[0] == "Reloaded") : ?>
 
 						<h1 class="event-title" role="heading"><span><?php the_title(); ?></span><br /><?php echo $title_strapline; ?></h1>
 					

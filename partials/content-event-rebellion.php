@@ -1,4 +1,7 @@
 <?php 
+// This is  the main content are for the full details of Rebellion events.
+// This is now also used for RELOADED
+
 // Query to include future posts is in functions.php
 
 
@@ -122,6 +125,21 @@ $micro_sponsors = get_field('micro_sponsors');
 		while ( have_rows('headline_speakers') ) : the_row();
 		$r++; // Count the rows so that html commenting can be used in the grid systems 
 
+			//------------------------------------------------------------------------------
+			//------------------------------------------------------------------------------
+			// This is a new section so that other content can be included. For eaxmple: for 
+			// RELOADED we need an area to add a gravity form so that people can submit talk 
+			// ideas!
+
+			// This is part of the speakers flexible content simply because its logical for 
+			// the layout of this page and it may be useful to have a general content area 
+			// in this later 
+
+			if ( get_row_layout() == 'main_speakers' ) :
+
+				
+
+			endif;
 
 			//------------------------------------------------------------------------------
 			//------------------------------------------------------------------------------
@@ -196,11 +214,11 @@ $micro_sponsors = get_field('micro_sponsors');
 						</div>
 						<?php endif; ?>
 
-					</div><?php if ( $c < 3 ) :?><!--<?php endif; ?>
+					</div><!--
 
 				<?php 
 				endwhile; endif; // ends looping through the repeater field ?>
-			
+				-->
 			<?php
 			endif; // endsi if the layout is main speakers
 

@@ -3225,6 +3225,10 @@ h1.event-title {
 .event-single .heading h1.event-title {
   padding: 2em 0 2em 0; }
 
+.reloaded .heading h1.event-title span {
+  font-family: "franklin-gothic-urw", sans-serif;
+  font-weight: 700; }
+
 h2.event-meta {
   font-family: "franklin-gothic-urw", sans-serif;
   font-weight: 400;
@@ -3996,6 +4000,8 @@ body {
 /* Used for socials header */
 .content-even .intro-bg {
   background-image: url("../assets/img/drinks-bg.jpg"); }
+.content-even.reloaded .intro-bg {
+  background-image: url("../assets/img/reloaded-bg.jpg"); }
 
 /* Used for workshops header */
 .content-mid .intro-bg {

@@ -158,6 +158,14 @@ h1.event-title {
 	padding: 2em 0 2em 0;
 }
 
+// Added for Reloaded page layout
+.reloaded {
+	.heading h1.event-title span {
+		font-family: $bold_font;
+		font-weight: 700;
+	}
+}
+
 	h2.event-meta {
 		font-family: $bold_font;
 		font-weight: 400;

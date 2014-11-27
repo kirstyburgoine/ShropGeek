@@ -379,6 +379,45 @@ function cpt_shropgeektv_init() {
 add_action( 'init', 'cpt_shropgeektv_init' );
 
 
+function cpt_talk_ideas_init() {
+
+		  $labels = array(
+		    'name' => 'Talk',
+		    'singular_name' => 'Talk',
+		    'add_new' => 'Add Talk',
+		    'add_new_item' => 'Add New Talk',
+		    'edit_item' => 'Edit Talk',
+		    'new_item' => 'New Talk',
+		    'all_items' => 'All Talks',
+		    'view_item' => 'View Talk',
+		    'search_items' => 'Search Talks',
+		    'not_found' =>  'No Talks found',
+		    'not_found_in_trash' => 'No Talks found in Trash', 
+		    'parent_item_colon' => '',
+		    'menu_name' => 'Talks'
+		  );
+
+		  $args = array(
+		    'labels' => $labels,
+		    'public' => true,
+		    'show_ui' => true, 
+		    'show_in_menu' => true, 
+		    'show_in_nav_menus' => true, 
+		    'capability_type' => 'post',
+		    'hierarchical' => true,
+		    'rewrite' => array( 'slug' => 'talk', 'with_front' => '1' ),
+		    'query_var' => true,
+		    'has_archive' => true, 
+		 	'exclude_from_search' => false,
+		    'publicly_queryable' => true,
+		    'menu_position' => null,
+		    'supports' => array( 'title', 'editor', 'thumbnail' )
+		  ); 
+
+	  register_post_type( 'talk', $args );
+
+}
+add_action( 'init', 'cpt_talk_ideas_init' );
 
 
 //Giving Editors Access to Gravity Forms

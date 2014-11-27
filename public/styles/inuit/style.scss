@@ -238,6 +238,12 @@ body {
 
 		background-image: url('../assets/img/drinks-bg.jpg'); 
 	}
+
+	&.reloaded {
+		.intro-bg {
+			background-image: url('../assets/img/reloaded-bg.jpg'); 
+		}
+	}
 }
 
 /* Used for workshops header */
