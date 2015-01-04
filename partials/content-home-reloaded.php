@@ -165,6 +165,4 @@ $booking_link = get_field('booking_link');
 
 	endif; // ends if have rows for headliens speakers flexible content ?>
 </div>
-			
-</div>
 				
