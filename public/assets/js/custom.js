@@ -46,6 +46,36 @@ $.slidebars();
   });
 
 
+//----------------------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------
+// Show / Hide submitted talk details for re:LOADED
+//----------------------------------------------------------------------------------------------------------------
+
+$(".post-talk h4.talk-title").prepend('<span class="collapse-sign ss-plus"></span>');
+
+
+$(".post-talk h4.talk-title").click(function () {
+
+  //$('.entry-content').not(this).slideUp();
+  $(this).next('.entry-content').slideToggle();
+  $(this).find(".collapse-sign").toggleClass('ss-hyphen');
+
+   // $(this).parent().siblings().children().next().slideUp();
+   // return false;
+
+});
+
+
+$(".post-talk .close").click(function () {
+
+  $('.post-talk .entry-content').slideUp();
+  $('.post-talk .collapse-sign').addClass('ss-plus').removeClass('ss-hyphen');
+
+});
+
+
+
+
 });
 
 

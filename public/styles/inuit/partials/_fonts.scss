@@ -226,6 +226,56 @@ h1.reloaded-event-title {
 		font-weight: 700;
 		font-size: 20px;
 	}
+
+	.post-talk {
+	
+		// Details of talks for voting
+		h4.talk-title {
+
+			border-top: solid 1px #ccc;
+
+			
+
+				&:hover { 
+					cursor: pointer; 
+					color: $link_color;
+				}
+			
+		}
+		// plus / minus sign for talk suggestions
+		.collapse-sign {
+			float: right;
+			line-height: 40px;
+		}
+
+		.rw-ui-container.rw-halign-right, 
+		.rw-ui-container.rw-halign-right .rw-ui-info-inner-container {
+			float: right;
+			clear: right;
+		}
+
+		.entry-content {
+			
+			display: none;
+
+			ul.social-menu {
+				margin-top: 1em;
+			}
+
+			.close { 
+				font-family: $bold_font;
+				font-size: 12px;
+
+				&:hover {
+					cursor: pointer; 
+					color: $link_color;
+				}
+			}
+
+		}
+	
+	}
+
 }
 
 

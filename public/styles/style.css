@@ -3263,6 +3263,28 @@ h1.reloaded-event-title {
   font-family: "franklin-gothic-urw", sans-serif;
   font-weight: 700;
   font-size: 20px; }
+.reloaded .post-talk h4.talk-title {
+  border-top: solid 1px #ccc; }
+  .reloaded .post-talk h4.talk-title:hover {
+    cursor: pointer;
+    color: #e8b52c; }
+.reloaded .post-talk .collapse-sign {
+  float: right;
+  line-height: 40px; }
+.reloaded .post-talk .rw-ui-container.rw-halign-right,
+.reloaded .post-talk .rw-ui-container.rw-halign-right .rw-ui-info-inner-container {
+  float: right;
+  clear: right; }
+.reloaded .post-talk .entry-content {
+  display: none; }
+  .reloaded .post-talk .entry-content ul.social-menu {
+    margin-top: 1em; }
+  .reloaded .post-talk .entry-content .close {
+    font-family: "franklin-gothic-urw", sans-serif;
+    font-size: 12px; }
+    .reloaded .post-talk .entry-content .close:hover {
+      cursor: pointer;
+      color: #e8b52c; }
 
 .event-content .reloaded h4 {
   font-family: "franklin-gothic-urw", sans-serif;

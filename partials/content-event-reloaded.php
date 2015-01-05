@@ -111,6 +111,114 @@ $micro_sponsors = get_field('micro_sponsors');
 	<?php 
 	endif; 
 
+	// ----------------------------------------------------------------------------------------------------
+	// ----------------------------------------------------------------------------------------------------
+	// The Submitted Talks for voting
+	// ----------------------------------------------------------------------------------------------------
+	// ----------------------------------------------------------------------------------------------------
+
+	$args = array(
+		'post_type' => 'talk',
+		'posts_per_page' => -1
+	);
+
+	$my_query = new WP_Query( $args ); 
+
+	if ( $my_query->have_posts() ) : 
+
+		$count = $my_query->post_count;
+		$half = $count / 2;
+		$n = 0;
+
+		?>
+
+		<div class="center-column">
+				
+				<div class="grid__item one-whole heading pt">
+					<hr>
+					<h2>Submitted Talks</h2>					
+				</div>
+				
+
+				<div class="grid__item one-whole pt">
+					<p class="aligncenter">Vote for the talks you would like to hear on the day. Click on each title to see a description of the talk and to vote. <br />Got an idea for a talk not listed? Then why not submit your idea using the form below.</p>				
+				</div>
+
+			</div>
+
+		<div class="grid__item one-half palm-one-whole pt">
+
+		<?php
+		while ($my_query->have_posts()) : $my_query->the_post(); 
+		$n++; 
+
+			$name = get_field('name');
+			$email = get_field('email');
+			$website = get_field('website');
+			$twitter = get_field('twitter');
+			$brief_bio = get_field('brief_bio');
+			$talk_duration = get_field('talk_duration');
+		?>
+
+			<div class="post post-<?php echo $n;?> post-talk">
+
+				<h4 class="talk-title">
+
+					<span><?php the_title(); ?></span>
+					<br /><?php echo $name; ?>
+					
+				</h4>	
+
+
+				<div class="entry-content">
+
+					<?php rw_the_post_rating(); ?>
+					<h5 class="">Duration: <?php echo $talk_duration; ?></h5>
+
+					<?php the_content(); ?>
+
+					<h4>About <?php echo $name; ?></h4>
+
+					<?php echo $brief_bio; ?>
+
+					<ul class="nav social-menu">
+						<?php if ( $website ) : ?><li><a href="<?php echo $website; ?>" class="ss-social-circle ss-icon" title="Link to <?php echo $name; ?>'s website">Link</a></li><?php endif; ?>
+						<?php if ( $twitter ) : ?><li><a href="<?php echo $twitter;?>" class="ss-social-circle ss-icon" title="Link to <?php echo $name; ?>'s twitter account">Twitter</a></li><?php endif; ?>
+					</ul>
+
+					<p class="aligncenter close">Close</p>
+					
+				</div>
+
+
+			</div>
+
+		<?php
+		if ( $n == $half || $n == $half + 0.5 ) :
+		?>
+	
+		</div><!--
+		--><div class="grid__item one-half palm-one-whole pt">
+	
+		<?php
+		endif;
+		?>
+				
+
+
+		<?php 
+		endwhile; ?>
+	</div>
+	<?php
+	endif; wp_reset_query();
+	// ----------------------------------------------------------------------------------------------------
+	// ----------------------------------------------------------------------------------------------------
+	// Ends The Submitted Talks for voting
+	// ----------------------------------------------------------------------------------------------------
+	// ----------------------------------------------------------------------------------------------------
+	// 
+	// 
+
 
 	// ----------------------------------------------------------------------------------------------------
 	// ----------------------------------------------------------------------------------------------------

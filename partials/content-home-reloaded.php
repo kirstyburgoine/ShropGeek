@@ -155,7 +155,7 @@ $booking_link = get_field('booking_link');
 					endwhile; 
 				endif; // ends looping through the repeater field ?>
 					-->
-				
+				</div>
 			<?php
 			endif; // endsi if the layout is main speakers
 			
@@ -164,5 +164,5 @@ $booking_link = get_field('booking_link');
 		endwhile; // ends have rows for headliens speakers flexible content
 
 	endif; // ends if have rows for headliens speakers flexible content ?>
+
 </div>
-				
