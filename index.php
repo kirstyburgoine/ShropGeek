@@ -33,7 +33,7 @@ get_header();
 			<?php
 			$args = array(
 				'post_type' => 'events',
-				'post_status' => array('publish', 'future'),
+				//'post_status' => array('publish', 'future'),
 				'posts_per_page' => 6
 			);
 

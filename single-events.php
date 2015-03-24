@@ -1,5 +1,4 @@
 <?php
-
 get_header(); 
 
 global $post;
@@ -125,6 +124,7 @@ $title_strapline = get_field('title_strapline');
 	elseif ( $types[0] == "Workshop") : ?>
 
 	<div class="grid__item one-whole" role="main">
+		test
 
 		<?php	
 		get_template_part( 'partials/content', 'event-workshop' ); ?>

@@ -102,7 +102,7 @@ endif; ?>
 				<div class="border-top pb">
 					
 					<p class="alignleft credits"><a href="http://www.kirstyburgoine.co.uk" title="Link to Kirsty Burgoine's website">Website by Kirsty Burgoine</a></p>
-					<p class="alignright credits">© 2014 ~ Shropgeek Ltd. Company No: 8921973<br />
+					<p class="alignright credits">© <?php echo date('Y');?> ~ Shropgeek Ltd. Company No: 8921973<br />
 						Made with <a href="http://mixture.io/">Mixture</a> / <a href="http://inuitcss.com/">inuitcss</a> / <a href="http://wordpress.org/">WordPress</a> / And Love!</p>
 
 				</div>

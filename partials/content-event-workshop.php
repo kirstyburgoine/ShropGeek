@@ -58,7 +58,7 @@ $workshop_footer_text = get_field('workshop_footer_text');
 		<p class="intro"><?php echo $intro_text; ?></p>
 		<hr>
 		
-		<h2 class="event-meta"><?php echo the_time('F jS Y'); ?>  . <span><?php echo $event_time; ?></span> . <?php echo $venue_name; ?></h2>
+		<h2 class="event-meta"><?php echo the_time('F jS Y'); ?>  . <span>test<?php echo $event_time; ?></span> . <?php echo $venue_name; ?></h2>
 		
 		
 

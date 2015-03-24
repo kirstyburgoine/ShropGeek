@@ -280,9 +280,11 @@ h1.reloaded-event-title {
 
 
 	// titles for speakers and partners
-	.event-content .reloaded h4 {
+	.event-content .reloaded h4, 
+	.reloaded .heading h3, 
+	.event-content .reloaded h2	 {
 		font-family: $bold_font;
-			color: $copy_color_alt;
+		color: $copy_color_alt;
 			
 	}
 

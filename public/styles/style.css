@@ -3286,7 +3286,9 @@ h1.reloaded-event-title {
       cursor: pointer;
       color: #e8b52c; }
 
-.event-content .reloaded h4 {
+.event-content .reloaded h4,
+.reloaded .heading h3,
+.event-content .reloaded h2 {
   font-family: "franklin-gothic-urw", sans-serif;
   color: #4d4d4d; }
 
